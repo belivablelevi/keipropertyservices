@@ -1,0 +1,23 @@
+{
+  "name": "keipropertyservices",
+  "version": "1.0.0",
+  "description": "Kei Services - Modern Property Services in Ottawa",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belivablelevi/keipropertyservices.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/belivablelevi/keipropertyservices/issues"
+  },
+  "homepage": "https://github.com/belivablelevi/keipropertyservices#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
