@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reviews — Kei Services · Ottawa</title>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+.coming-soon-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--nav-h) 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.cs-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+                    linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%,black 20%,transparent 100%);
+}
+.cs-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(circle,rgba(184,255,87,.06),transparent 70%);
+  pointer-events: none;
+}
+.cs-content {
+  position: relative; z-index: 1;
+  text-align: center;
+  max-width: 520px;
+}
+/* Square accent shape */
+.cs-badge {
+  width: 72px; height: 72px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 32px;
+  position: relative;
+}
+.cs-badge::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(184,255,87,.2), transparent 60%);
+}
+.cs-badge svg { width: 28px; height: 28px; stroke: var(--accent); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; position: relative; z-index: 1; }
+.cs-tag { margin-bottom: 20px; display: inline-flex; }
+.cs-title {
+  font-family: var(--fd); font-size: clamp(36px,5vw,60px);
+  font-weight: 800; letter-spacing: -.04em; line-height: 1.08;
+  margin-bottom: 20px;
+}
+.cs-title em { font-style: normal; color: var(--accent); }
+.cs-body {
+  font-size: 17px; color: var(--text-2); line-height: 1.75;
+  margin-bottom: 40px;
+}
+.cs-actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+/* Honest info strip */
+.cs-info-strip {
+  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+  margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--border);
+}
+.cs-info-pill {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 18px;
+  background: var(--bg-2); border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px; color: var(--text-2);
+}
+.cs-info-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo"><div class="logo-mark"><svg viewBox="0 0 18 18" fill="none"><path d="M2 13L6 7 9 10 12 5 16 13" stroke="#080808" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Kei<span style="color:var(--accent)">.</span></a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Work</a></li>
+      <li><a href="reviews.html" class="active" style="color:var(--text-3);cursor:default">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+13435971646" class="btn-ghost">(343) 597-1646</a>
+      <a href="contact.html" class="btn-primary">Get a Quote</a>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" onclick="toggleMenu()">✕</span>
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Work</a>
+  <a href="contact.html" onclick="toggleMenu()">Get a Quote</a>
+</div>
+
+<div class="coming-soon-wrap">
+  <div class="cs-grid"></div>
+  <div class="cs-glow"></div>
+  <div class="cs-content reveal">
+    <div class="cs-badge">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    </div>
+    <div class="cs-tag"><span class="tag">Reviews</span></div>
+    <h1 class="cs-title">Reviews are<br/><em>coming soon.</em></h1>
+    <p class="cs-body">We just launched and are still taking on our first jobs. We will post real customer reviews here as they come in. In the meantime, take a look at our work or reach out directly.</p>
+    <div class="cs-actions">
+      <a href="portfolio.html" class="btn-lg">See Our Work</a>
+      <a href="contact.html" class="btn-outline">Book a Job</a>
+    </div>
+    <div class="cs-info-strip">
+      <div class="cs-info-pill"><div class="cs-info-dot"></div>New company, real work</div>
+      <div class="cs-info-pill"><div class="cs-info-dot"></div>No fake reviews</div>
+      <div class="cs-info-pill"><div class="cs-info-dot"></div>Central Ottawa</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><div class="logo-mark"><svg viewBox="0 0 18 18" fill="none"><path d="M2 13L6 7 9 10 12 5 16 13" stroke="#080808" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Kei<span style="color:var(--accent)">.</span></div>
+        <p class="footer-tag">Modern property services for Ottawa homeowners who value speed, quality, and a team that actually shows up.</p>
+        <div class="footer-soc">
+          <a href="https://www.instagram.com/keipropertyservices/" target="_blank" class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.tiktok.com/@keipropertyservices" target="_blank" class="soc-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.77 0 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 1 0 6.34 6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.02-.06z"/></svg></a>
+          <a href="https://www.facebook.com/share/14bTA9XozbW/" target="_blank" class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="mailto:keipropertyservices@gmail.com" class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        </div>
+      </div>
+      <div><div class="footer-col-title">Pages</div><div class="footer-links"><a href="services.html">Services</a><a href="about.html">About</a><a href="portfolio.html">Work</a><a href="contact.html">Get a Quote</a></div></div>
+      <div><div class="footer-col-title">Service Areas</div><div class="footer-links"><a href="contact.html">Centretown</a><a href="contact.html">The Glebe</a><a href="contact.html">Westboro</a><a href="contact.html">Hintonburg</a><a href="contact.html">Sandy Hill</a><a href="contact.html">Vanier</a></div></div>
+      <div><div class="footer-col-title">Contact</div><div class="footer-links"><a href="tel:+13435971646">(343) 597-1646</a><a href="mailto:keipropertyservices@gmail.com">keipropertyservices@gmail.com</a></div><div class="footer-hours"><div class="footer-hours-title">Hours</div><p>Mon to Sat, 7am to 7pm</p></div></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">2025 Kei Services. Ottawa, Ontario, Canada.</div><div class="footer-badge"><span style="color:var(--accent)">▲</span> Built different.</div></div>
+  </div>
+</footer>
+<script>
+window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40));
+function toggleMenu() { const m = document.getElementById('mobileMenu'); m.classList.toggle('open'); document.body.style.overflow = m.classList.contains('open') ? 'hidden' : ''; }
+document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold:.08 }).observe(el));
+
+// Theme toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('kei-theme', next);
+}
+(function() {
+  const saved = localStorage.getItem('kei-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'light');
+  if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+})();
+</script>
+</body>
+</html>
