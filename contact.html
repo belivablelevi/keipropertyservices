@@ -190,7 +190,7 @@
             // 2. Add your domain OR use their sandbox (resend.dev)
             // 3. Create an API key → paste it below
             // 4. Set NOTIFY_EMAIL to the address(es) to alert
-            var RESEND_API_KEY  = 're_CecAJyTd_PavHUer8BHLo65G7R6GZ1yUH';    // e.g. re_abc123...
+            var RESEND_API_KEY  = 'YOUR_RESEND_API_KEY';    // e.g. re_abc123...
             var NOTIFY_EMAIL    = 'keipropertyservices@gmail.com'; // alert sent here
             var NOTIFY_EMAIL_2  = '';                        // optional second owner email
             // ──────────────────────────────────────────────────
@@ -432,66 +432,35 @@ async function submitQuote() {
   }
 }
 
-// ── OWNER EMAIL ALERT (Resend) ────────────────────────────────
-// Sends a notification email to the owners on every new quote.
-// Resend free tier = 100 emails/day, no credit card needed.
-// Sign up at resend.com, create an API key, paste above.
+// ── OWNER EMAIL ALERT (via Supabase Edge Function) ───────────
+// Calls the Edge Function at supabase/functions/send-quote-alert/
+// which runs server-side — no CORS issues, no API key in browser.
+// Deploy once: npx supabase functions deploy send-quote-alert
+// Set secret: npx supabase secrets set RESEND_API_KEY=re_...
 async function sendOwnerAlert(q) {
-  if (!RESEND_API_KEY || RESEND_API_KEY === 'YOUR_RESEND_API_KEY') return;
-
-  var svcLabels = {
-    'junk removal':'Junk Removal','landscaping':'Landscaping',
-    'pressure washing':'Pressure Washing','yard cleanup':'Yard Cleanup',
-    'mulch installation':'Mulch Installation','seasonal cleanup':'Seasonal Cleanup',
-    'multiple':'Multiple Services','not sure':'Not Sure'
-  };
-  var svcName = svcLabels[q.service] || q.service;
-  var mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q.address + ', Ottawa, ON');
-  var dashUrl = 'https://keipropertyservices.vercel.app/dashboard.html';
-
-  var to = [NOTIFY_EMAIL];
-  if (NOTIFY_EMAIL_2) to.push(NOTIFY_EMAIL_2);
-
-  var html = `
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;max-width:560px;margin:0 auto;background:#080808;color:#f0f0f0;border-radius:12px;overflow:hidden;border:1px solid #242424">
-      <div style="background:#0f0f0f;padding:24px 28px;border-bottom:1px solid #242424">
-        <div style="font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#5a5a5a;margin-bottom:6px">Kei Services CRM</div>
-        <div style="font-size:22px;font-weight:800;color:#f0f0f0">New Quote Request</div>
-      </div>
-      <div style="padding:28px">
-        <table style="width:100%;border-collapse:collapse">
-          <tr><td style="padding:10px 0;border-bottom:1px solid #242424;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#5a5a5a;width:100px">Name</td><td style="padding:10px 0;border-bottom:1px solid #242424;font-size:15px;font-weight:600;color:#f0f0f0">${q.name}</td></tr>
-          <tr><td style="padding:10px 0;border-bottom:1px solid #242424;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#5a5a5a">Phone</td><td style="padding:10px 0;border-bottom:1px solid #242424;font-size:15px;color:#f0f0f0"><a href="tel:${q.phone.replace(/\D/g,'')}" style="color:#a8e85a;text-decoration:none">${q.phone}</a></td></tr>
-          ${q.email ? `<tr><td style="padding:10px 0;border-bottom:1px solid #242424;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#5a5a5a">Email</td><td style="padding:10px 0;border-bottom:1px solid #242424;font-size:15px;color:#f0f0f0"><a href="mailto:${q.email}" style="color:#a8e85a;text-decoration:none">${q.email}</a></td></tr>` : ''}
-          <tr><td style="padding:10px 0;border-bottom:1px solid #242424;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#5a5a5a">Service</td><td style="padding:10px 0;border-bottom:1px solid #242424;font-size:15px;color:#f0f0f0">${svcName}</td></tr>
-          <tr><td style="padding:10px 0;border-bottom:1px solid #242424;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#5a5a5a">Address</td><td style="padding:10px 0;border-bottom:1px solid #242424;font-size:15px;color:#f0f0f0"><a href="${mapsUrl}" target="_blank" style="color:#a8e85a;text-decoration:none">${q.address} ↗</a></td></tr>
-          ${q.message ? `<tr><td style="padding:10px 0;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#5a5a5a;vertical-align:top;padding-top:14px">Details</td><td style="padding:10px 0;font-size:14px;color:#a0a0a0;line-height:1.7">${q.message}</td></tr>` : ''}
-        </table>
-        <div style="margin-top:28px;display:flex;gap:12px">
-          <a href="tel:${q.phone.replace(/\D/g,'')}" style="display:inline-block;background:#a8e85a;color:#080808;font-weight:700;font-size:14px;padding:12px 22px;border-radius:9px;text-decoration:none">Call ${q.name.split(' ')[0]}</a>
-          <a href="${dashUrl}" style="display:inline-block;background:#1a1a1a;color:#f0f0f0;font-weight:600;font-size:14px;padding:12px 22px;border-radius:9px;text-decoration:none;border:1px solid #2e2e2e">Open Dashboard</a>
-          <a href="${mapsUrl}" target="_blank" style="display:inline-block;background:#1a1a1a;color:#a8e85a;font-weight:600;font-size:14px;padding:12px 22px;border-radius:9px;text-decoration:none;border:1px solid #2e2e2e">View on Maps ↗</a>
-        </div>
-      </div>
-      <div style="padding:16px 28px;border-top:1px solid #242424;font-size:12px;color:#5a5a5a">
-        Submitted ${new Date().toLocaleString('en-CA',{timeZone:'America/Toronto',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})} ET · Kei Property Services · Ottawa
-      </div>
-    </div>`;
-
+  if (!SUPABASE_URL || SUPABASE_URL === 'YOUR_SUPABASE_URL') return;
   try {
-    await fetch('https://api.resend.com/emails', {
+    await fetch(SUPABASE_URL + '/functions/v1/send-quote-alert', {
       method: 'POST',
-      headers: { 'Authorization': 'Bearer ' + RESEND_API_KEY, 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type':  'application/json',
+        'apikey':        SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON
+      },
       body: JSON.stringify({
-        from: 'Kei Services CRM <onboarding@resend.dev>',
-        to: to,
-        subject: '📋 New Quote: ' + svcName + ' — ' + q.name,
-        html: html
+        name:         q.name,
+        phone:        q.phone,
+        email:        q.email  || '',
+        address:      q.address,
+        service:      q.service,
+        message:      q.message || '',
+        notifyEmail:  NOTIFY_EMAIL,
+        notifyEmail2: NOTIFY_EMAIL_2 || '',
+        dashUrl:      'https://keipropertyservices.vercel.app/dashboard.html'
       })
     });
   } catch(e) {
     console.warn('Email alert failed (non-critical):', e);
-    // Quote was still saved — email failure is silent to user
   }
 }
 </script>
