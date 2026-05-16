@@ -437,7 +437,7 @@ async function submitQuote() {
 // Resend free tier = 100 emails/day, no credit card needed.
 // Sign up at resend.com, create an API key, paste above.
 async function sendOwnerAlert(q) {
-  if (!RESEND_API_KEY || RESEND_API_KEY === 're_CecAJyTd_PavHUer8BHLo65G7R6GZ1yUH') return;
+  if (!RESEND_API_KEY || RESEND_API_KEY === 'YOUR_RESEND_API_KEY') return;
 
   var svcLabels = {
     'junk removal':'Junk Removal','landscaping':'Landscaping',
@@ -447,7 +447,7 @@ async function sendOwnerAlert(q) {
   };
   var svcName = svcLabels[q.service] || q.service;
   var mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q.address + ', Ottawa, ON');
-  var dashUrl = 'https://keiservices.ca/dashboard.html';
+  var dashUrl = 'https://keipropertyservices.vercel.app/dashboard.html';
 
   var to = [NOTIFY_EMAIL];
   if (NOTIFY_EMAIL_2) to.push(NOTIFY_EMAIL_2);
@@ -483,7 +483,7 @@ async function sendOwnerAlert(q) {
       method: 'POST',
       headers: { 'Authorization': 'Bearer ' + RESEND_API_KEY, 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        from: 'Kei Services CRM <quotes@keiservices.ca>',
+        from: 'Kei Services CRM <onboarding@resend.dev>',
         to: to,
         subject: '📋 New Quote: ' + svcName + ' — ' + q.name,
         html: html
