@@ -428,30 +428,37 @@ textarea.fi{resize:vertical;min-height:90px}
         <div class="notes-box" id="mq-msg"></div>
       </div>
 
-      <!-- Send Quote to Customer -->
-      <div style="background:var(--bg-3);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:18px">
-        <div class="fl" style="margin-bottom:10px">📤 Send Quote to Customer</div>
+      <!-- Proposal Builder -->
+      <div style="background:var(--bg-3);border:1px solid rgba(168,232,90,.2);border-radius:var(--r);padding:16px;margin-bottom:18px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+          <div class="fl" style="margin:0">📋 Proposal</div>
+          <button class="btn btn-ghost btn-sm" onclick="generateProposal()" id="gen-proposal-btn">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Auto-Fill Template
+          </button>
+        </div>
         <div class="form-row-2" style="margin-bottom:10px">
           <div class="fg" style="margin-bottom:0">
             <label class="fl">Your Price ($)</label>
-            <input class="fi" id="mq-quote-price" type="number" placeholder="e.g. 200" style="font-size:16px;font-weight:600"/>
+            <input class="fi" id="mq-quote-price" type="number" placeholder="e.g. 200" style="font-size:16px;font-weight:600" oninput="refreshProposal()"/>
           </div>
           <div class="fg" style="margin-bottom:0">
             <label class="fl">Send via</label>
-            <select class="fi" id="mq-quote-method">
+            <select class="fi" id="mq-quote-method" onchange="refreshProposal()">
               <option value="sms">Text Message (SMS)</option>
               <option value="email">Email</option>
             </select>
           </div>
         </div>
         <div class="fg" style="margin-bottom:10px">
-          <label class="fl">Optional note</label>
-          <input class="fi" id="mq-quote-note" placeholder="e.g. Includes disposal. Available Tue or Wed." style="font-size:13px"/>
+          <label class="fl">Message — edit freely before sending</label>
+          <textarea class="fi" id="mq-proposal-body" rows="9" style="font-size:13px;line-height:1.65;resize:vertical" placeholder="Enter a price above and click Auto-Fill Template, or write your own message here."></textarea>
         </div>
         <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="sendQuoteToCustomer()">
-          Send Quote to Customer →
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Open in Email / SMS App →
         </button>
-        <div style="font-size:11px;color:var(--text-3);margin-top:8px;text-align:center">Opens your SMS or email app pre-filled — you hit send.</div>
+        <div style="font-size:11px;color:var(--text-3);margin-top:8px;text-align:center">Opens your app pre-filled with the message above — you review and hit send.</div>
       </div>
 
       <!-- Status -->
@@ -832,40 +839,104 @@ function openQuoteModal(id){
   var msgWrap = document.getElementById('mq-msg-wrap');
   if(q.message){ msgWrap.style.display='block'; document.getElementById('mq-msg').textContent=q.message; }
   else { msgWrap.style.display='none'; }
-  // Reset send-quote fields
-  document.getElementById('mq-quote-price').value = '';
-  document.getElementById('mq-quote-note').value  = '';
+  // Reset proposal fields
+  document.getElementById('mq-quote-price').value  = '';
+  document.getElementById('mq-proposal-body').value = '';
   openModal('modalQuote');
+}
+
+// ── PROPOSAL TEMPLATE GENERATOR ──────────────────────────────
+function buildProposalText(q, price, method){
+  var firstName = q.name.split(' ')[0];
+  var svc = svcLabel(q.service_type);
+  var addr = q.address;
+  var priceStr = price ? '$' + Number(price).toLocaleString() : '[PRICE]';
+
+  // Service-specific lines
+  var serviceDetails = {
+    'junk removal':      'This includes loading, hauling, and disposal of all items.',
+    'landscaping':       'This covers all labour, equipment, and cleanup.',
+    'pressure washing':  'This covers the full area including equipment and cleaning solution.',
+    'yard cleanup':      'This includes all debris removal and site cleanup.',
+    'mulch installation':'This includes delivery and installation of mulch.',
+    'seasonal cleanup':  'This covers full seasonal clearing and debris removal.',
+  };
+  var detailLine = serviceDetails[q.service_type] || 'This includes all labour and equipment.';
+
+  if(method === 'sms'){
+    return (
+      'Hi ' + firstName + '! This is Kei Services.\n\n' +
+      'Thanks for reaching out about ' + svc + ' at ' + addr + '.\n\n' +
+      'Your quote: ' + priceStr + '\n' +
+      detailLine + '\n\n' +
+      'To confirm, just reply "Sounds good!" and we\'ll get you scheduled.\n\n' +
+      'Any questions? Text back anytime.\n' +
+      '— Kei Services · (343) 597-1646'
+    );
+  } else {
+    return (
+      'Hi ' + firstName + ',\n\n' +
+      'Thank you for contacting Kei Services! We\'ve reviewed your request for ' + svc + ' at ' + addr + ' and are happy to provide the following quote.\n\n' +
+      '─────────────────────\n' +
+      'SERVICE:  ' + svc + '\n' +
+      'ADDRESS:  ' + addr + '\n' +
+      'PRICE:    ' + priceStr + '\n' +
+      '─────────────────────\n\n' +
+      detailLine + '\n\n' +
+      'To move forward, simply reply to this email and we\'ll get you booked in at a time that works for you.\n\n' +
+      'If you have any questions or would like to adjust anything, don\'t hesitate to reach out.\n\n' +
+      'Looking forward to hearing from you!\n\n' +
+      'Kei Services\n' +
+      '(343) 597-1646\n' +
+      'keiservices.ca'
+    );
+  }
+}
+
+function generateProposal(){
+  var q = DB.quotes.find(x=>x.id===activeQuoteId);
+  if(!q) return;
+  var price  = document.getElementById('mq-quote-price').value.trim();
+  var method = document.getElementById('mq-quote-method').value;
+  document.getElementById('mq-proposal-body').value = buildProposalText(q, price, method);
+}
+
+function refreshProposal(){
+  // Only auto-refresh if the textarea already has content (user already generated)
+  var body = document.getElementById('mq-proposal-body').value.trim();
+  if(!body) return;
+  generateProposal();
 }
 
 function sendQuoteToCustomer(){
   var q = DB.quotes.find(x=>x.id===activeQuoteId);
   if(!q) return;
-  var price  = document.getElementById('mq-quote-price').value.trim();
-  var note   = document.getElementById('mq-quote-note').value.trim();
-  var method = document.getElementById('mq-quote-method').value;
+  var price   = document.getElementById('mq-quote-price').value.trim();
+  var method  = document.getElementById('mq-quote-method').value;
+  var msgBody = document.getElementById('mq-proposal-body').value.trim();
+
   if(!price){ alert('Enter a price first.'); document.getElementById('mq-quote-price').focus(); return; }
-  var firstName = q.name.split(' ')[0];
-  var svc = svcLabel(q.service_type);
-  var noteLine = note ? '\n\n' + note : '';
-  var msg = 'Hi ' + firstName + ', this is Kei Services!\n\nYour quote for ' + svc + ' at ' + q.address + ' is $' + price + '.' + noteLine + '\n\nTo approve, just reply "Sounds good!" and we\'ll get you booked in.\n\nAny questions? Just text back. Thanks!\n— Kei Services (343) 597-1646';
+  if(!msgBody){ alert('Click "Auto-Fill Template" or write a message first.'); document.getElementById('mq-proposal-body').focus(); return; }
+
   var phoneClean = q.phone.replace(/\D/g,'');
+  var svc = svcLabel(q.service_type);
+
   if(method === 'sms'){
-    var smsBody = encodeURIComponent(msg);
-    window.open('sms:+1' + phoneClean + '?body=' + smsBody);
+    window.open('sms:+1' + phoneClean + '?body=' + encodeURIComponent(msgBody));
   } else {
-    if(!q.email){ alert('This customer has no email on file. Use Text instead.'); return; }
+    if(!q.email){ alert('This customer has no email on file. Switch to Text instead.'); return; }
     var subject = encodeURIComponent('Your Quote from Kei Services — ' + svc);
-    var body = encodeURIComponent(msg);
-    window.open('mailto:' + q.email + '?subject=' + subject + '&body=' + body);
+    window.open('mailto:' + q.email + '?subject=' + subject + '&body=' + encodeURIComponent(msgBody));
   }
+
   // Auto-advance status to "quoted"
+  var firstName = q.name.split(' ')[0];
   q.status = 'quoted';
   save();
   document.getElementById('mq-status').innerHTML = badge('quoted');
   renderQuotes();
   initDashboard();
-  flash('Quote sent to ' + firstName + ' · Status → Quoted');
+  flash('Proposal opened for ' + firstName + ' · Status → Quoted');
   if(useSupabase) sbFetch('quote_requests',{method:'PATCH',eq:'id',eqVal:activeQuoteId,body:{status:'quoted'}});
 }
 function updateQuoteStatus(status){
