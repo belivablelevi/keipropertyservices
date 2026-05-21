@@ -3,68 +3,40 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Services — Kei Services · Ottawa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="styles.css"/>
-<style>
-.svc-full-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 2px; }
-.svc-full-grid.single { grid-template-columns: 1fr; }
-.svc-full-card { background: var(--bg-2); padding: 48px 44px; position: relative; overflow: hidden; transition: background .3s; }
-.svc-full-card::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 80% 0%,rgba(184,255,87,.1),transparent 55%); opacity:0; transition:opacity .4s; }
-.svc-full-card:hover { background: var(--bg-3); }
-.svc-full-card:hover::before { opacity: 1; }
-.svc-full-icon { width: 56px; height: 56px; border-radius: 14px; background: var(--surface); border: 1px solid var(--border-2); display: flex; align-items: center; justify-content: center; margin-bottom: 28px; transition: all .35s; }
-.svc-full-card:hover .svc-full-icon { background: rgba(184,255,87,.1); border-color: rgba(184,255,87,.25); }
-.svc-full-icon svg { width: 26px; height: 26px; stroke: var(--text-2); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: stroke .3s; }
-.svc-full-card:hover .svc-full-icon svg { stroke: var(--accent); }
-.svc-full-name { font-family: var(--fd); font-size: 26px; font-weight: 800; letter-spacing: -.03em; margin-bottom: 14px; transition: color .3s; }
-.svc-full-card:hover .svc-full-name { color: var(--accent); }
-.svc-full-desc { font-size: 16px; color: var(--text-2); line-height: 1.8; margin-bottom: 28px; }
-.svc-includes { margin-bottom: 28px; }
-.svc-includes-title { font-family: var(--fm); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-3); margin-bottom: 14px; }
-.svc-includes ul { display: flex; flex-direction: column; gap: 8px; }
-.svc-includes li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-2); }
-.svc-includes li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-.svc-price { font-family: var(--fm); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); padding: 10px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; display: inline-block; }
-.why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-.why-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 32px; transition: all .3s; position: relative; overflow: hidden; }
-.why-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--accent),transparent); opacity:0; transition:opacity .4s; }
-.why-card:hover { border-color: var(--border-2); transform: translateY(-3px); }
-.why-card:hover::after { opacity: 1; }
-.why-num { font-family: var(--fm); font-size: 11px; letter-spacing: .14em; color: var(--text-3); margin-bottom: 16px; text-transform: uppercase; }
-.why-title { font-family: var(--fd); font-size: 18px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 10px; }
-.why-desc { font-size: 14px; color: var(--text-2); line-height: 1.75; }
-@media(max-width:1024px) { .svc-full-grid { grid-template-columns: 1fr; } .why-grid { grid-template-columns: repeat(2,1fr); } }
-@media(max-width:640px) { .why-grid { grid-template-columns: 1fr; } .svc-full-card { padding: 32px 28px; } }
-</style>
+<style>.svc-full-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:2px}.svc-full-grid.single{grid-template-columns:1fr}.svc-full-card{background:var(--bg-2);padding:48px 44px;position:relative;overflow:hidden;transition:background .3s}.svc-full-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,rgba(184,255,87,.1),transparent 55%);opacity:0;transition:opacity .4s}.svc-full-card:hover{background:var(--bg-3)}.svc-full-card:hover::before{opacity:1}.svc-full-icon{width:56px;height:56px;border-radius:14px;background:var(--surface);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;margin-bottom:28px;transition:all .35s}.svc-full-card:hover .svc-full-icon{background:rgba(184,255,87,.1);border-color:rgba(184,255,87,.25)}.svc-full-icon svg{width:26px;height:26px;stroke:var(--text-2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}.svc-full-card:hover .svc-full-icon svg{stroke:var(--accent)}.svc-full-name{font-family:var(--fd);font-size:26px;font-weight:800;letter-spacing:-.03em;margin-bottom:14px;transition:color .3s}.svc-full-card:hover .svc-full-name{color:var(--accent)}.svc-full-desc{font-size:16px;color:var(--text-2);line-height:1.8;margin-bottom:28px}.svc-includes{margin-bottom:28px}.svc-includes-title{font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px}.svc-includes ul{display:flex;flex-direction:column;gap:8px}.svc-includes li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-2)}.svc-includes li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0}.svc-price{font-family:var(--fm);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);padding:10px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;display:inline-block}.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.why-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px;transition:all .3s;position:relative;overflow:hidden}.why-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .4s}.why-card:hover{border-color:var(--border-2);transform:translateY(-3px)}.why-card:hover::after{opacity:1}.why-num{font-family:var(--fm);font-size:11px;letter-spacing:.14em;color:var(--text-3);margin-bottom:16px;text-transform:uppercase}.why-title{font-family:var(--fd);font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}.why-desc{font-size:14px;color:var(--text-2);line-height:1.75}@media(max-width:1024px){.svc-full-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.why-grid{grid-template-columns:1fr}.svc-full-card{padding:32px 28px}}</style>
 </head>
 <body>
 <nav id="navbar">
   <div class="container nav-inner">
-    <a href="index.html" class="nav-logo"><div class="logo-mark"><svg viewBox="0 0 18 18" fill="none"><path d="M2 13L6 7 9 10 12 5 16 13" stroke="#080808" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Kei<span style="color:var(--accent)">.</span></a>
+    <a href="index.html" class="nav-logo" aria-label="Kei Services — home"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 13L6 7 9 10 12 5 16 13" stroke="#080808" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Kei<span style="color:var(--accent)">.</span></a>
     <ul class="nav-links">
       <li><a href="services.html" class="active">Services</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="portfolio.html">Work</a></li>
-      <li><a href="reviews.html" style="color:var(--text-3)">Reviews</a></li>
+      <li><a href="reviews.html" style="color:var(--text-3);cursor:not-allowed" title="Reviews coming soon" aria-disabled="true" tabindex="-1">Reviews</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-cta">
       <a href="tel:+13435971646" class="btn-ghost">(343) 597-1646</a>
       <a href="contact.html" class="btn-primary">Get a Quote</a>
     </div>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">
-      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to light mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
-    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <button class="hamburger" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <span class="mobile-close" onclick="toggleMenu()">✕</span>
-  <a href="services.html" onclick="toggleMenu()">Services</a>
-  <a href="about.html" onclick="toggleMenu()">About</a>
-  <a href="portfolio.html" onclick="toggleMenu()">Work</a>
-  <a href="reviews.html" onclick="toggleMenu()">Reviews</a>
-  <a href="contact.html" onclick="toggleMenu()">Get a Quote</a>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <button class="mobile-close" id="menuClose" aria-label="Close navigation menu">✕</button>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="portfolio.html">Work</a>
+  <a href="reviews.html" style="color:var(--text-3)" title="Reviews coming soon">Reviews <small style="font-size:14px;opacity:.5">(soon)</small></a>
+  <a href="contact.html">Get a Quote</a>
 </div>
 
 <div class="page-hero">
@@ -101,7 +73,6 @@
   <div class="container">
 
     <div class="svc-full-grid reveal">
-      <!-- Junk Removal -->
       <div class="svc-full-card">
         <div class="svc-full-icon"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></div>
         <div class="svc-full-name">Junk Removal</div>
@@ -118,7 +89,6 @@
         </div>
         <span class="svc-price">Starting from $100</span>
       </div>
-      <!-- Landscaping -->
       <div class="svc-full-card">
         <div class="svc-full-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
         <div class="svc-full-name">Landscaping</div>
@@ -138,7 +108,6 @@
     </div>
 
     <div class="svc-full-grid reveal d1">
-      <!-- Pressure Washing -->
       <div class="svc-full-card">
         <div class="svc-full-icon"><svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M16 12h6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/></svg></div>
         <div class="svc-full-name">Pressure Washing</div>
@@ -155,7 +124,6 @@
         </div>
         <span class="svc-price">Starting from $120</span>
       </div>
-      <!-- Yard Cleanup -->
       <div class="svc-full-card">
         <div class="svc-full-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M10 11l2 2 4-4"/></svg></div>
         <div class="svc-full-name">Yard Cleanup</div>
@@ -175,7 +143,6 @@
     </div>
 
     <div class="svc-full-grid reveal d2">
-      <!-- Mulch -->
       <div class="svc-full-card">
         <div class="svc-full-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
         <div class="svc-full-name">Mulch Installation</div>
@@ -192,7 +159,6 @@
         </div>
         <span class="svc-price">Starting from $150</span>
       </div>
-      <!-- Seasonal -->
       <div class="svc-full-card">
         <div class="svc-full-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 2a10 10 0 0 0-10 10"/><path d="M12 22a10 10 0 0 0 10-10"/><path d="M12 22a10 10 0 0 1-10-10"/><circle cx="12" cy="12" r="3"/></svg></div>
         <div class="svc-full-name">Seasonal Cleanup</div>
@@ -214,7 +180,6 @@
   </div>
 </section>
 
-<!-- WHY -->
 <section class="section" style="background:var(--bg-2)">
   <div class="container">
     <div style="text-align:center;margin-bottom:56px" class="reveal">
@@ -232,7 +197,6 @@
   </div>
 </section>
 
-<!-- CTA BAND -->
 <div class="cta-band">
   <div class="container">
     <div class="cta-inner reveal">
@@ -252,12 +216,12 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo"><div class="logo-mark"><svg viewBox="0 0 18 18" fill="none"><path d="M2 13L6 7 9 10 12 5 16 13" stroke="#080808" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Kei<span style="color:var(--accent)">.</span></div>
+        <div class="footer-logo"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 13L6 7 9 10 12 5 16 13" stroke="#080808" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Kei<span style="color:var(--accent)">.</span></div>
         <p class="footer-tag">Modern property services for Ottawa homeowners who value speed, quality, and a team that actually shows up.</p>
         <div class="footer-soc">
-          <a href="https://www.instagram.com/keipropertyservices/" target="_blank" class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.tiktok.com/@keipropertyservices" target="_blank" class="soc-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.77 0 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 1 0 6.34 6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.02-.06z"/></svg></a>
-          <a href="https://www.facebook.com/share/14bTA9XozbW/" target="_blank" class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="mailto:keipropertyservices@gmail.com" class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+          <a href="https://www.instagram.com/keipropertyservices/" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.tiktok.com/@keipropertyservices" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.77 0 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 1 0 6.34 6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.02-.06z"/></svg></a>
+          <a href="https://www.facebook.com/share/14bTA9XozbW/" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="mailto:keipropertyservices@gmail.com" class="soc-btn" aria-label="Email us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
         </div>
       </div>
       <div><div class="footer-col-title">Services</div><div class="footer-links"><a href="services.html">Junk Removal</a><a href="services.html">Landscaping</a><a href="services.html">Pressure Washing</a><a href="services.html">Yard Cleanup</a><a href="services.html">Mulch Installation</a><a href="services.html">Seasonal Cleanup</a></div></div>
@@ -268,23 +232,53 @@
   </div>
 </footer>
 <script>
-window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40));
-function toggleMenu() { const m = document.getElementById('mobileMenu'); m.classList.toggle('open'); document.body.style.overflow = m.classList.contains('open') ? 'hidden' : ''; }
-document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold:.1, rootMargin:'0px 0px -40px 0px' }).observe(el));
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+const _menuToggle = document.getElementById('menuToggle');
+const _menuClose  = document.getElementById('menuClose');
+const _mobileMenu = document.getElementById('mobileMenu');
 
-// Theme toggle
-function toggleTheme() {
-  const html = document.documentElement;
-  const current = html.getAttribute('data-theme');
-  const next = current === 'light' ? 'dark' : 'light';
-  html.setAttribute('data-theme', next);
-  localStorage.setItem('kei-theme', next);
+function openMenu() {
+  _mobileMenu.classList.add('open');
+  _menuToggle.setAttribute('aria-expanded', 'true');
+  _menuToggle.setAttribute('aria-label', 'Close navigation menu');
+  document.body.style.overflow = 'hidden';
+  _menuClose.focus();
 }
-(function() {
+function closeMenu() {
+  _mobileMenu.classList.remove('open');
+  _menuToggle.setAttribute('aria-expanded', 'false');
+  _menuToggle.setAttribute('aria-label', 'Open navigation menu');
+  document.body.style.overflow = '';
+  _menuToggle.focus();
+}
+
+_menuToggle.addEventListener('click', openMenu);
+_menuClose.addEventListener('click', closeMenu);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && _mobileMenu.classList.contains('open')) closeMenu(); });
+const _revealObs = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+  { threshold: .08, rootMargin: '0px 0px -40px 0px' }
+);
+document.querySelectorAll('.reveal').forEach(el => _revealObs.observe(el));
+const _themeToggle = document.getElementById('themeToggle');
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('kei-theme', theme);
+  _themeToggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+}
+
+_themeToggle.addEventListener('click', () => {
+  applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+});
+
+(function initTheme() {
   const saved = localStorage.getItem('kei-theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = saved || (prefersDark ? 'dark' : 'light');
-  if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  const theme = saved ?? (prefersDark ? 'dark' : 'light');
+  if (theme === 'light') applyTheme('light');
 })();
 </script>
 </body>
