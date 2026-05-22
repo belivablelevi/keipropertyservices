@@ -154,7 +154,7 @@ nav.scrolled {
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 .nav-logo  { display: flex; align-items: center; gap: 10px; font-family: var(--fd); font-weight: 800; font-size: 20px; letter-spacing: -.02em; }
-.logo-mark { width: 32px; height: 32px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.logo-mark { width: 32px; height: 32px; background: #ffffff; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
 .logo-mark svg { width: 18px; height: 18px; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-links a { font-size: 14px; color: var(--text-2); transition: color .2s; }
