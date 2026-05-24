@@ -3,56 +3,111 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>About — Kei Services · Ottawa</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="styles.css"/>
-<style>.about-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}.about-photo-main{width:100%;aspect-ratio:3/4;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--border-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden}.about-photo-main::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(184,255,87,.04),transparent 60%)}.about-photo-main span{font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}.about-photo-main small{font-size:13px;color:var(--text-3);opacity:.5}.about-photo-badge{position:absolute;bottom:24px;left:24px;right:24px;background:rgba(8,8,8,.85);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;display:flex;align-items:center;gap:14px}.badge-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);flex-shrink:0;animation:pulse 2s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(184,255,87,.3)}50%{opacity:.7;box-shadow:0 0 0 8px transparent}}.badge-text{font-size:14px;font-weight:600}.badge-sub{font-size:12px;color:var(--text-3);margin-top:2px}.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}.value-card{background:var(--bg-3);border:1px solid var(--border);border-radius:var(--r);padding:22px;transition:border-color .3s}.value-card:hover{border-color:var(--border-2)}.value-title{font-family:var(--fd);font-size:15px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}.value-desc{font-size:13px;color:var(--text-3);line-height:1.6}.founders-section{display:grid;grid-template-columns:1fr 1fr;gap:24px}.founder-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-lg);padding:40px;transition:border-color .3s;position:relative;overflow:hidden}.founder-card::before{content:'';position:absolute;top:0;right:0;width:160px;height:160px;background:radial-gradient(circle,rgba(184,255,87,.05),transparent 70%);pointer-events:none}.founder-card:hover{border-color:var(--border-2)}.founder-avatar-lg{width:64px;height:64px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:22px;color:#080808;margin-bottom:20px}.founder-name{font-family:var(--fd);font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}.founder-role{font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}.founder-bio{font-size:15px;color:var(--text-2);line-height:1.8}.truck-story{background:var(--bg-3);border:1px solid var(--border);border-radius:var(--r-lg);padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.truck-story-text h2{font-family:var(--fd);font-size:clamp(28px,3.5vw,42px);font-weight:800;letter-spacing:-.03em;margin-bottom:20px}.truck-story-text p{font-size:16px;color:var(--text-2);line-height:1.8;margin-bottom:16px}.truck-story-ph{width:100%;aspect-ratio:4/3;border-radius:var(--r);background:var(--surface);border:1px solid var(--border-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}.truck-story-ph span{font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}.timeline{display:flex;flex-direction:column;gap:0}.tl-item{display:grid;grid-template-columns:80px 1fr;gap:24px;position:relative;padding-bottom:40px}.tl-item:last-child{padding-bottom:0}.tl-item::before{content:'';position:absolute;left:39px;top:20px;bottom:0;width:2px;background:var(--border)}.tl-item:last-child::before{display:none}.tl-dot-wrap{display:flex;flex-direction:column;align-items:center;padding-top:6px}.tl-dot{width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg-2);position:relative;z-index:1;flex-shrink:0}.tl-year{font-family:var(--fm);font-size:11px;letter-spacing:.08em;color:var(--text-3);margin-top:8px}.tl-content-title{font-family:var(--fd);font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}.tl-content-body{font-size:15px;color:var(--text-2);line-height:1.75}@media(max-width:1024px){.about-hero-grid{grid-template-columns:1fr;gap:48px}.about-photo-main{aspect-ratio:16/9}.founders-section{grid-template-columns:1fr}.truck-story{grid-template-columns:1fr;gap:32px;padding:36px}}@media(max-width:640px){.values-grid{grid-template-columns:1fr}.tl-item{grid-template-columns:60px 1fr;gap:16px}.tl-item::before{left:29px}}</style>
+<style>
+.about-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-photo-main { width: 100%; aspect-ratio: 3/4; border-radius: var(--r-lg); background: var(--surface); border: 1px solid var(--border-2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; position: relative; overflow: hidden; }
+.about-photo-main::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 30% 70%,rgba(184,255,87,.04),transparent 60%); }
+.about-photo-main span { font-family: var(--fm); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-3); }
+.about-photo-main small { font-size: 13px; color: var(--text-3); opacity: .5; }
+.about-photo-badge { position: absolute; bottom: 24px; left: 24px; right: 24px; background: rgba(8,8,8,.85); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 20px; display: flex; align-items: center; gap: 14px; }
+.badge-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(184,255,87,.3)} 50%{opacity:.7;box-shadow:0 0 0 8px transparent} }
+.badge-text { font-size: 14px; font-weight: 600; }
+.badge-sub { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+
+.values-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 40px; }
+.value-card { background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--r); padding: 22px; transition: border-color .3s; }
+.value-card:hover { border-color: var(--border-2); }
+.value-title { font-family: var(--fd); font-size: 15px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 6px; }
+.value-desc { font-size: 13px; color: var(--text-3); line-height: 1.6; }
+
+.founders-section { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.founder-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 40px; transition: border-color .3s; position: relative; overflow: hidden; }
+.founder-card::before { content:''; position:absolute; top:0; right:0; width:160px; height:160px; background:radial-gradient(circle,rgba(184,255,87,.05),transparent 70%); pointer-events:none; }
+.founder-card:hover { border-color: var(--border-2); }
+.founder-avatar-lg { width: 64px; height: 64px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-weight: 800; font-size: 22px; color: #080808; margin-bottom: 20px; }
+.founder-name { font-family: var(--fd); font-size: 22px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 4px; }
+.founder-role { font-family: var(--fm); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+.founder-bio { font-size: 15px; color: var(--text-2); line-height: 1.8; }
+
+.truck-story { background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.truck-story-text h2 { font-family: var(--fd); font-size: clamp(28px,3.5vw,42px); font-weight: 800; letter-spacing: -.03em; margin-bottom: 20px; }
+.truck-story-text p { font-size: 16px; color: var(--text-2); line-height: 1.8; margin-bottom: 16px; }
+.truck-story-ph { width: 100%; aspect-ratio: 4/3; border-radius: var(--r); background: var(--surface); border: 1px solid var(--border-2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.truck-story-ph span { font-family: var(--fm); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-3); }
+
+.timeline { display: flex; flex-direction: column; gap: 0; }
+.tl-item { display: grid; grid-template-columns: 80px 1fr; gap: 24px; position: relative; padding-bottom: 40px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before { content:''; position:absolute; left:39px; top:20px; bottom:0; width:2px; background:var(--border); }
+.tl-item:last-child::before { display:none; }
+.tl-dot-wrap { display: flex; flex-direction: column; align-items: center; padding-top: 6px; }
+.tl-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg-2); position: relative; z-index: 1; flex-shrink: 0; }
+.tl-year { font-family: var(--fm); font-size: 11px; letter-spacing: .08em; color: var(--text-3); margin-top: 8px; }
+.tl-content-title { font-family: var(--fd); font-size: 18px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 8px; }
+.tl-content-body { font-size: 15px; color: var(--text-2); line-height: 1.75; }
+
+@media(max-width:1024px) {
+  .about-hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-photo-main { aspect-ratio: 16/9; }
+  .founders-section { grid-template-columns: 1fr; }
+  .truck-story { grid-template-columns: 1fr; gap: 32px; padding: 36px; }
+}
+@media(max-width:640px) {
+  .values-grid { grid-template-columns: 1fr; }
+  .tl-item { grid-template-columns: 60px 1fr; gap: 16px; }
+  .tl-item::before { left:29px; }
+}
+</style>
 </head>
 <body>
 <nav id="navbar">
   <div class="container nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Kei Services — home"><div class="logo-mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" style="width:20px;height:20px;display:block"><path fill="#0b9854" d="M 384 99 L 221 98 L 15 247 L 86 247 L 179 301 L 241 301 L 161 219 Z"/><path fill="#7ed956" d="M 59 198 L 176 112 L 72 98 Z"/></svg></div>Kei<span style="color:var(--accent)">.</span></a>
+    <a href="index.html" class="nav-logo"><div class="logo-mark"><svg viewBox="0 0 18 18" fill="none"><path d="M2 13L6 7 9 10 12 5 16 13" stroke="#080808" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Kei<span style="color:var(--accent)">.</span></a>
     <ul class="nav-links">
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="portfolio.html">Work</a></li>
-      <li><a href="reviews.html" style="color:var(--text-3);cursor:not-allowed" title="Reviews coming soon" aria-disabled="true" tabindex="-1">Reviews</a></li>
+      <li><a href="reviews.html" style="color:var(--text-3)">Reviews</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-cta">
       <a href="tel:+13435971646" class="btn-ghost">(343) 597-1646</a>
       <a href="contact.html" class="btn-primary">Get a Quote</a>
     </div>
-    <button class="theme-toggle" id="themeToggle" aria-label="Switch to light mode">
-      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
-    <button class="hamburger" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu" aria-modal="true">
-  <button class="mobile-close" id="menuClose" aria-label="Close navigation menu">✕</button>
-  <a href="services.html">Services</a>
-  <a href="about.html">About</a>
-  <a href="portfolio.html">Work</a>
-  <a href="reviews.html" style="color:var(--text-3)" title="Reviews coming soon">Reviews <small style="font-size:14px;opacity:.5">(soon)</small></a>
-  <a href="contact.html">Get a Quote</a>
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" onclick="toggleMenu()">✕</span>
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Work</a>
+  <a href="reviews.html" onclick="toggleMenu()">Reviews</a>
+  <a href="contact.html" onclick="toggleMenu()">Get a Quote</a>
 </div>
 
 <div class="page-hero">
   <div class="container page-hero-content">
     <div class="page-hero-tag reveal"><span class="tag">Our Story</span></div>
     <h1 class="page-title reveal d1">Built in Ottawa.<br/>Built to last.</h1>
-    <p class="page-hero-sub reveal d2">Two high school students, one kei truck, and a genuine obsession with doing property work properly. This is who we are.</p>
+    <p class="page-hero-sub reveal d2">One student with a genuine obsession with doing property work properly. This is who we are.</p>
   </div>
 </div>
 
+<!-- INTRO -->
 <section class="section" style="background:var(--bg)">
   <div class="container">
     <div class="about-hero-grid">
       <div class="reveal">
+        <!-- PASTE YOUR TEAM PHOTO URL INTO data-img="" BELOW -->
         <div class="about-photo-main" data-img="">
-          <span>Team photo</span>
+          <span>Profile photo</span>
           <small>Coming soon</small>
           <div class="about-photo-badge">
             <div class="badge-dot"></div>
@@ -65,11 +120,13 @@
       </div>
       <div class="reveal d2">
         <span class="tag">Who We Are</span>
-        <h2 class="section-title" style="margin-top:18px;margin-bottom:22px">Two students.<br/>One <em style="font-style:normal;color:var(--accent)">serious business.</em></h2>
+        <h2 class="section-title" style="margin-top:18px;margin-bottom:22px">One student.<br/>One <em style="font-style:normal;color:var(--accent)">serious business.</em></h2>
         <p style="font-size:16px;color:var(--text-2);line-height:1.8;margin-bottom:18px">Kei Services started with a simple observation: most property service companies in Ottawa treat customer communication and presentation as an afterthought. We decided to fix that.</p>
-        <p style="font-size:16px;color:var(--text-2);line-height:1.8;margin-bottom:18px">We are two high school students who wanted to build something real while we were young enough to put in the work. We are not a side hustle. We show up with proper equipment, we communicate throughout every job, and we send before-and-after photos when we are done.</p>
-        <p style="font-size:16px;color:var(--text-2);line-height:1.8;margin-bottom:32px">The kei truck came first. Everything else followed from there.</p>
+        <p style="font-size:16px;color:var(--text-2);line-height:1.8;margin-bottom:18px">Kei Services is built by a high school student who wanted to build something real while young enough to put in the work. This is not a side hustle. We show up with proper equipment, communicate throughout every job, and send before-and-after photos when done.</p>
+        <p style="font-size:16px;color:var(--text-2);line-height:1.8;margin-bottom:32px">The idea came first. Everything else followed from there.</p>
         <div class="stats-row">
+          <div><div class="stat-num">100+</div><div class="stat-label">Jobs completed</div></div>
+          <div><div class="stat-num">5.0</div><div class="stat-label">Star rating</div></div>
           <div><div class="stat-num">2025</div><div class="stat-label">Year founded</div></div>
         </div>
       </div>
@@ -77,6 +134,7 @@
   </div>
 </section>
 
+<!-- VALUES -->
 <section class="section" style="background:var(--bg-2)">
   <div class="container">
     <div style="max-width:600px;margin-bottom:56px" class="reveal">
@@ -104,47 +162,13 @@
   </div>
 </section>
 
-<section class="section" style="background:var(--bg)">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:56px" class="reveal">
-      <span class="tag">The Team</span>
-      <h2 class="section-title" style="margin-top:18px">Meet the crew.</h2>
-    </div>
-    <div class="founders-section">
-      <div class="founder-card reveal d1">
-        <div class="founder-avatar-lg">K</div>
-        <div class="founder-name">Co-Founder</div>
-        <div class="founder-role">Operations Lead</div>
-        <p class="founder-bio">Handles day-to-day job logistics, equipment, and on-site quality. Has been obsessed with utility vehicles since before it was relevant. The one who spotted the kei truck and said we need that.</p>
-      </div>
-      <div class="founder-card reveal d2">
-        <div class="founder-avatar-lg" style="background:rgba(184,255,87,0.15);color:var(--accent)">K</div>
-        <div class="founder-name">Co-Founder</div>
-        <div class="founder-role">Client Relations</div>
-        <p class="founder-bio">Manages customer communication, quotes, and booking. The one who replies to your text in under an hour. Believes that the way you talk to customers matters as much as the job itself.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- FOUNDERS -->
 
-<section class="section" style="background:var(--bg-2)">
-  <div class="container">
-    <div class="truck-story reveal">
-      <div class="truck-story-text">
-        <span class="tag" style="margin-bottom:20px;display:inline-flex">The Truck</span>
-        <h2>Why a kei truck?</h2>
-        <p>A Japanese kei truck is not a typical choice for a property services company in Ottawa. That is exactly the point.</p>
-        <p>Kei trucks are compact, capable, and built for utility work in tight urban environments. They fit into narrow driveways, gated backyards, and access roads that full-size pickup trucks cannot reach. That opens up jobs that other crews turn down.</p>
-        <p>But honestly, we also just love the thing. It looks different, it moves different, and it makes a statement about what kind of company we are trying to build. One that thinks about the details.</p>
-      </div>
-      <div class="truck-story-ph" data-img="">
-        <span>Truck photo</span>
-        <small style="font-size:13px;color:var(--text-3);opacity:.5">Coming soon</small>
-      </div>
-    </div>
-  </div>
-</section>
 
+<!-- TRUCK STORY -->
+
+
+<!-- TIMELINE -->
 <section class="section" style="background:var(--bg)">
   <div class="container">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
@@ -154,27 +178,21 @@
         <p style="font-size:16px;color:var(--text-2);line-height:1.8">From an idea to a running business. Here is how Kei Services went from zero to operational in Ottawa.</p>
       </div>
       <div class="timeline reveal d2">
-        <div class="tl-item">
-          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-year">2024</div></div>
-          <div><div class="tl-content-title">The idea</div><p class="tl-content-body">Noticed a gap in how Ottawa property services handle communication and presentation. Started planning.</p></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-year">Early 2025</div></div>
-          <div><div class="tl-content-title">The truck arrives</div><p class="tl-content-body">Acquired the kei truck. Immediately understood how much of an advantage it would be for tight Ottawa properties.</p></div>
-        </div>
+        
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-year">2025</div></div>
           <div><div class="tl-content-title">First jobs</div><p class="tl-content-body">First yard cleanups and junk removals booked. Every one got photographed, documented, and reviewed.</p></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-wrap"><div class="tl-dot"></div><div class="tl-year">Now</div></div>
-          <div><div class="tl-content-title">Growing across Ottawa</div><p class="tl-content-body">Serving customers across Centretown, Westboro, the Glebe, Hintonburg, Sandy Hill, and Vanier with six services.</p></div>
+          <div><div class="tl-content-title">Growing across Ottawa</div><p class="tl-content-body">Serving customers across Centretown, Westboro, the Glebe, Hintonburg, Sandy Hill, and Vanier with four services.</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CTA BAND -->
 <div class="cta-band">
   <div class="container">
     <div class="cta-inner reveal">
@@ -194,15 +212,15 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo"><div class="logo-mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" style="width:20px;height:20px;display:block"><path fill="#0b9854" d="M 384 99 L 221 98 L 15 247 L 86 247 L 179 301 L 241 301 L 161 219 Z"/><path fill="#7ed956" d="M 59 198 L 176 112 L 72 98 Z"/></svg></div>Kei<span style="color:var(--accent)">.</span></div>
-        <p class="footer-tag">Modern property services for Ottawa homeowners who value speed, quality, and a team that actually shows up.</p>
+        <div class="footer-logo"><div class="logo-mark"><svg viewBox="0 0 18 18" fill="none"><path d="M2 13L6 7 9 10 12 5 16 13" stroke="#080808" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Kei<span style="color:var(--accent)">.</span></div>
+        <p class="footer-tag">Modern property services for Ottawa homeowners who value speed, quality, and someone who actually shows up.</p>
         <div class="footer-soc">
-          <a href="https://www.instagram.com/keipropertyservices/" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.tiktok.com/@keipropertyservices" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.77 0 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 1 0 6.34 6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.02-.06z"/></svg></a>
-          <a href="https://www.facebook.com/share/14bTA9XozbW/" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="mailto:keipropertyservices@gmail.com" class="soc-btn" aria-label="Email us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+          <a href="https://www.instagram.com/keipropertyservices/" target="_blank" class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.tiktok.com/@keipropertyservices" target="_blank" class="soc-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.77 0 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 1 0 6.34 6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.02-.06z"/></svg></a>
+          <a href="https://www.facebook.com/share/14bTA9XozbW/" target="_blank" class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="mailto:keipropertyservices@gmail.com" class="soc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
         </div>
       </div>
-      <div><div class="footer-col-title">Services</div><div class="footer-links"><a href="services.html">Junk Removal</a><a href="services.html">Landscaping</a><a href="services.html">Pressure Washing</a><a href="services.html">Yard Cleanup</a><a href="services.html">Mulch Installation</a><a href="services.html">Seasonal Cleanup</a></div></div>
+      <div><div class="footer-col-title">Services</div><div class="footer-links"><a href="services.html">Landscaping</a><a href="services.html">Pressure Washing</a><a href="services.html">Yard Cleanup</a><a href="services.html">Seasonal Cleanup</a></div></div>
       <div><div class="footer-col-title">Service Areas</div><div class="footer-links"><a href="contact.html">Centretown</a><a href="contact.html">The Glebe</a><a href="contact.html">Westboro</a><a href="contact.html">Hintonburg</a><a href="contact.html">Sandy Hill</a><a href="contact.html">Vanier</a></div></div>
       <div><div class="footer-col-title">Contact</div><div class="footer-links"><a href="tel:+13435971646">(343) 597-1646</a><a href="mailto:keipropertyservices@gmail.com">keipropertyservices@gmail.com</a><a href="contact.html">Get a Quote</a></div><div class="footer-hours"><div class="footer-hours-title">Hours</div><p>Mon to Sat, 7am to 7pm</p></div></div>
     </div>
@@ -210,58 +228,25 @@
   </div>
 </footer>
 <script>
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-const _menuToggle = document.getElementById('menuToggle');
-const _menuClose  = document.getElementById('menuClose');
-const _mobileMenu = document.getElementById('mobileMenu');
+window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40));
+function toggleMenu() { const m = document.getElementById('mobileMenu'); m.classList.toggle('open'); document.body.style.overflow = m.classList.contains('open') ? 'hidden' : ''; }
+document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold:.1, rootMargin:'0px 0px -40px 0px' }).observe(el));
+document.querySelectorAll('[data-img]').forEach(el => { const url = el.getAttribute('data-img'); if(url && url.trim()) { el.style.backgroundImage = `url('${url}')`; el.classList.add('has-image'); } });
 
-function openMenu() {
-  _mobileMenu.classList.add('open');
-  _menuToggle.setAttribute('aria-expanded', 'true');
-  _menuToggle.setAttribute('aria-label', 'Close navigation menu');
-  document.body.style.overflow = 'hidden';
-  _menuClose.focus();
+// Theme toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('kei-theme', next);
 }
-function closeMenu() {
-  _mobileMenu.classList.remove('open');
-  _menuToggle.setAttribute('aria-expanded', 'false');
-  _menuToggle.setAttribute('aria-label', 'Open navigation menu');
-  document.body.style.overflow = '';
-  _menuToggle.focus();
-}
-
-_menuToggle.addEventListener('click', openMenu);
-_menuClose.addEventListener('click', closeMenu);
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && _mobileMenu.classList.contains('open')) closeMenu(); });
-const _revealObs = new IntersectionObserver(
-  entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-  { threshold: .08, rootMargin: '0px 0px -40px 0px' }
-);
-document.querySelectorAll('.reveal').forEach(el => _revealObs.observe(el));
-const _themeToggle = document.getElementById('themeToggle');
-
-function applyTheme(theme) {
-  document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('kei-theme', theme);
-  _themeToggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
-}
-
-_themeToggle.addEventListener('click', () => {
-  applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
-});
-
-(function initTheme() {
+(function() {
   const saved = localStorage.getItem('kei-theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = saved ?? (prefersDark ? 'dark' : 'light');
-  if (theme === 'light') applyTheme('light');
+  const theme = saved || (prefersDark ? 'dark' : 'light');
+  if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
 })();
-document.querySelectorAll('[data-img]').forEach(el => {
-  const url = el.getAttribute('data-img');
-  if (url && url.trim()) { el.style.backgroundImage = `url('${url}')`; el.classList.add('has-image'); }
-});
 </script>
 </body>
 </html>
