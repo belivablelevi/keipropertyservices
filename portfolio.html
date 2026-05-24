@@ -6,12 +6,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="styles.css"/>
-<style>.filter-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:48px}.filter-btn{font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:8px 18px;border-radius:100px;border:1px solid var(--border-2);color:var(--text-3);cursor:pointer;transition:all .2s;background:none}.filter-btn:hover{color:var(--text);border-color:var(--text-3)}.filter-btn.active{background:var(--accent);color:#080808;border-color:var(--accent);font-weight:600}.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.portfolio-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:border-color .3s}.portfolio-card:hover{border-color:var(--border-2)}.portfolio-card.hidden{display:none}.ba-card-info{padding:20px 24px}.ba-card-tag{font-family:var(--fm);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}.ba-card-title{font-family:var(--fd);font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}.ba-card-location{font-size:13px;color:var(--text-3)}.placeholder-bg-junk{background:linear-gradient(135deg,#1a1108 0%,#120c06 100%)}.placeholder-bg-after{background:linear-gradient(135deg,#0d1a0d 0%,#081008 100%)}.placeholder-bg-wash-b{background:linear-gradient(135deg,#16120a 0%,#0e0d08 100%)}.placeholder-bg-wash-a{background:linear-gradient(135deg,#0a1016 0%,#080d14 100%)}.placeholder-bg-yard-b{background:linear-gradient(135deg,#0e1408 0%,#090e06 100%)}.placeholder-bg-yard-a{background:linear-gradient(135deg,#080f08 0%,#060d06 100%)}.placeholder-bg-mulch-b{background:linear-gradient(135deg,#141008 0%,#0e0c06 100%)}.placeholder-bg-mulch-a{background:linear-gradient(135deg,#0c1408 0%,#0a1006 100%)}.placeholder-bg-seasonal-b{background:linear-gradient(135deg,#121010 0%,#0c0c0e 100%)}.placeholder-bg-seasonal-a{background:linear-gradient(135deg,#0a1010 0%,#080e0e 100%)}.social-content-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.social-tile{aspect-ratio:1;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}.social-tile:hover{border-color:var(--border-2);transform:scale(1.02)}.social-tile:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;min-height:240px}.soc-tile-label{font-family:var(--fm);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}.soc-tile-platform{position:absolute;top:10px;left:10px;font-family:var(--fm);font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);color:white;padding:3px 7px;border-radius:3px}.soc-tile-overlay{position:absolute;inset:0;background:transparent;display:flex;align-items:center;justify-content:center;transition:background .3s}.social-tile:hover .soc-tile-overlay{background:rgba(0,0,0,.45)}.soc-play{opacity:0;transform:scale(.8);transition:all .3s;width:44px;height:44px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center}.social-tile:hover .soc-play{opacity:1;transform:scale(1)}.soc-play svg{width:18px;height:18px;fill:#080808;margin-left:3px}@media(max-width:1024px){.portfolio-grid{grid-template-columns:repeat(2,1fr)}.social-content-grid{grid-template-columns:repeat(3,1fr)}.social-tile:first-child{grid-column:span 1;grid-row:span 1;min-height:auto}}@media(max-width:640px){.portfolio-grid{grid-template-columns:1fr}.social-content-grid{grid-template-columns:repeat(2,1fr)}}</style>
+<style>.filter-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:48px}.filter-btn{font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:8px 18px;border-radius:100px;border:1px solid var(--border-2);color:var(--text-3);cursor:pointer;transition:all .2s;background:none}.filter-btn:hover{color:var(--text);border-color:var(--text-3)}.filter-btn.active{background:var(--accent);color:#080808;border-color:var(--accent);font-weight:600}.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.portfolio-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:border-color .3s}.portfolio-card:hover{border-color:var(--border-2)}.portfolio-card.hidden{display:none}.ba-card-info{padding:20px 24px}.ba-card-tag{font-family:var(--fm);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}.ba-card-title{font-family:var(--fd);font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}.ba-card-location{font-size:13px;color:var(--text-3)}.placeholder-bg-after{background:linear-gradient(135deg,#0d1a0d 0%,#081008 100%)}.placeholder-bg-wash-b{background:linear-gradient(135deg,#16120a 0%,#0e0d08 100%)}.placeholder-bg-wash-a{background:linear-gradient(135deg,#0a1016 0%,#080d14 100%)}.placeholder-bg-yard-b{background:linear-gradient(135deg,#0e1408 0%,#090e06 100%)}.placeholder-bg-yard-a{background:linear-gradient(135deg,#080f08 0%,#060d06 100%)}.placeholder-bg-seasonal-b{background:linear-gradient(135deg,#121010 0%,#0c0c0e 100%)}.placeholder-bg-seasonal-a{background:linear-gradient(135deg,#0a1010 0%,#080e0e 100%)}.social-content-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.social-tile{aspect-ratio:1;background:var(--bg-3);border:1px solid var(--border);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}.social-tile:hover{border-color:var(--border-2);transform:scale(1.02)}.social-tile:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;min-height:240px}.soc-tile-label{font-family:var(--fm);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}.soc-tile-platform{position:absolute;top:10px;left:10px;font-family:var(--fm);font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);color:white;padding:3px 7px;border-radius:3px}.soc-tile-overlay{position:absolute;inset:0;background:transparent;display:flex;align-items:center;justify-content:center;transition:background .3s}.social-tile:hover .soc-tile-overlay{background:rgba(0,0,0,.45)}.soc-play{opacity:0;transform:scale(.8);transition:all .3s;width:44px;height:44px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center}.social-tile:hover .soc-play{opacity:1;transform:scale(1)}.soc-play svg{width:18px;height:18px;fill:#080808;margin-left:3px}@media(max-width:1024px){.portfolio-grid{grid-template-columns:repeat(2,1fr)}.social-content-grid{grid-template-columns:repeat(3,1fr)}.social-tile:first-child{grid-column:span 1;grid-row:span 1;min-height:auto}}@media(max-width:640px){.portfolio-grid{grid-template-columns:1fr}.social-content-grid{grid-template-columns:repeat(2,1fr)}}</style>
 </head>
 <body>
 <nav id="navbar">
   <div class="container nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Kei Services — home"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 13L6 7 9 10 12 5 16 13" stroke="#080808" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Kei<span style="color:var(--accent)">.</span></a>
+    <a href="index.html" class="nav-logo" aria-label="Kei Services — home"><div class="logo-mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" style="width:20px;height:20px;display:block"><path fill="#0b9854" d="M 384 99 L 221 98 L 15 247 L 86 247 L 179 301 L 241 301 L 161 219 Z"/><path fill="#7ed956" d="M 59 198 L 176 112 L 72 98 Z"/></svg></div>Kei<span style="color:var(--accent)">.</span></a>
     <ul class="nav-links">
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html">About</a></li>
@@ -57,40 +57,22 @@
 
     <div class="filter-bar reveal">
       <button class="filter-btn active" data-cat="all">All Jobs</button>
-      <button class="filter-btn" data-cat="junk">Junk Removal</button>
+      
       <button class="filter-btn" data-cat="wash">Pressure Washing</button>
       <button class="filter-btn" data-cat="yard">Yard Cleanup</button>
-      <button class="filter-btn" data-cat="mulch">Mulch</button>
+      
       <button class="filter-btn" data-cat="seasonal">Seasonal</button>
     </div>
 
 <div class="portfolio-grid" id="portfolioGrid">
 
-      <div class="portfolio-card reveal d1" data-cat="junk">
-        <div class="ba-wrap" data-ba>
-          <div class="ba-before placeholder-bg-junk" data-img=""><span class="ba-ph">Before photo</span></div>
-          <div class="ba-after placeholder-bg-after" data-img=""><span class="ba-ph">After photo</span></div>
-          <div class="ba-div" data-divider><div class="ba-handle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg></div></div>
+      
           <div class="ba-lbl-row"><span class="ba-lbl">Before</span><span class="ba-lbl">After</span></div>
-        </div>
-        <div class="ba-card-info">
-          <div class="ba-card-tag">Junk Removal</div>
-          <div class="ba-card-title">Full Property Clearout</div>
-          <div class="ba-card-location">Centretown, Ottawa</div>
         </div>
       </div>
 
-      <div class="portfolio-card reveal d2" data-cat="junk">
-        <div class="ba-wrap" data-ba>
-          <div class="ba-before placeholder-bg-junk" data-img=""><span class="ba-ph">Before photo</span></div>
-          <div class="ba-after placeholder-bg-after" data-img=""><span class="ba-ph">After photo</span></div>
-          <div class="ba-div" data-divider><div class="ba-handle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg></div></div>
+      
           <div class="ba-lbl-row"><span class="ba-lbl">Before</span><span class="ba-lbl">After</span></div>
-        </div>
-        <div class="ba-card-info">
-          <div class="ba-card-tag">Junk Removal</div>
-          <div class="ba-card-title">Garage and Shed Cleanout</div>
-          <div class="ba-card-location">Sandy Hill, Ottawa</div>
         </div>
       </div>
 
@@ -150,19 +132,7 @@
         </div>
       </div>
 
-      <div class="portfolio-card reveal d1" data-cat="mulch">
-        <div class="ba-wrap" data-ba>
-          <div class="ba-before placeholder-bg-mulch-b" data-img=""><span class="ba-ph">Before photo</span></div>
-          <div class="ba-after placeholder-bg-mulch-a" data-img=""><span class="ba-ph">After photo</span></div>
-          <div class="ba-div" data-divider><div class="ba-handle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg></div></div>
-          <div class="ba-lbl-row"><span class="ba-lbl">Before</span><span class="ba-lbl">After</span></div>
-        </div>
-        <div class="ba-card-info">
-          <div class="ba-card-tag">Mulch Installation</div>
-          <div class="ba-card-title">Front Garden Beds</div>
-          <div class="ba-card-location">Vanier, Ottawa</div>
-        </div>
-      </div>
+      
 
       <div class="portfolio-card reveal d2" data-cat="seasonal">
         <div class="ba-wrap" data-ba>
@@ -237,15 +207,15 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 13L6 7 9 10 12 5 16 13" stroke="#080808" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Kei<span style="color:var(--accent)">.</span></div>
-        <p class="footer-tag">Modern property services for Ottawa homeowners who value speed, quality, and a team that actually shows up.</p>
+        <div class="footer-logo"><div class="logo-mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" style="width:20px;height:20px;display:block"><path fill="#0b9854" d="M 384 99 L 221 98 L 15 247 L 86 247 L 179 301 L 241 301 L 161 219 Z"/><path fill="#7ed956" d="M 59 198 L 176 112 L 72 98 Z"/></svg></div>Kei<span style="color:var(--accent)">.</span></div>
+        <p class="footer-tag">Modern property services for Ottawa homeowners who value speed, quality, and someone who actually shows up.</p>
         <div class="footer-soc">
           <a href="https://www.instagram.com/keipropertyservices/" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
           <a href="https://www.tiktok.com/@keipropertyservices" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.77 0 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 1 0 6.34 6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.02-.06z"/></svg></a>
           <a href="https://www.facebook.com/share/14bTA9XozbW/" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="mailto:keipropertyservices@gmail.com" class="soc-btn" aria-label="Email us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
         </div>
       </div>
-      <div><div class="footer-col-title">Services</div><div class="footer-links"><a href="services.html">Junk Removal</a><a href="services.html">Landscaping</a><a href="services.html">Pressure Washing</a><a href="services.html">Yard Cleanup</a><a href="services.html">Mulch Installation</a><a href="services.html">Seasonal Cleanup</a></div></div>
+      <div><div class="footer-col-title">Services</div><div class="footer-links"><a href="services.html">Landscaping</a><a href="services.html">Pressure Washing</a><a href="services.html">Yard Cleanup</a><a href="services.html">Seasonal Cleanup</a></div></div>
       <div><div class="footer-col-title">Service Areas</div><div class="footer-links"><a href="contact.html">Centretown</a><a href="contact.html">The Glebe</a><a href="contact.html">Westboro</a><a href="contact.html">Hintonburg</a><a href="contact.html">Sandy Hill</a><a href="contact.html">Vanier</a></div></div>
       <div><div class="footer-col-title">Contact</div><div class="footer-links"><a href="tel:+13435971646">(343) 597-1646</a><a href="mailto:keipropertyservices@gmail.com">keipropertyservices@gmail.com</a><a href="contact.html">Get a Quote</a></div><div class="footer-hours"><div class="footer-hours-title">Hours</div><p>Mon to Sat, 7am to 7pm</p></div></div>
     </div>
