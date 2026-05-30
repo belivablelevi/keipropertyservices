@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Block internal/admin pages if added later
+Disallow: /dashboard.html
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.keipropertyservices.ca/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
