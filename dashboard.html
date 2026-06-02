@@ -17,6 +17,22 @@
 --fd:'Syne',sans-serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;
 --r:12px;--r-lg:20px;
 }
+[data-theme="light"]{
+--bg:#f5f5f3;--bg-2:#ffffff;--bg-3:#f0f0ee;--surface:#e8e8e4;
+--border:#e0e0dc;--border-2:#d0d0cc;
+--text:#111111;--text-2:#555555;--text-3:#999999;
+--accent-gl:rgba(45,106,45,0.08);
+}
+[data-theme="light"] .topbar{background:rgba(245,245,243,0.92)}
+[data-theme="light"] .login-screen{background:var(--bg)}
+[data-theme="light"] .badge-pending,[data-theme="light"] .b-pending{background:rgba(180,120,0,.1)}
+[data-theme="light"] .tnav-btn.active{background:rgba(45,106,45,.08)}
+.theme-toggle{margin-left:8px;width:32px;height:32px;border-radius:8px;border:1px solid var(--border);background:var(--surface);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.theme-toggle:hover{border-color:var(--border-2)}
+.theme-toggle svg{width:14px;height:14px;stroke:var(--text-2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.icon-sun{display:none}
+[data-theme="light"] .icon-moon{display:none}
+[data-theme="light"] .icon-sun{display:block}
 html{-webkit-font-smoothing:antialiased}
 body{background:var(--bg);color:var(--text);font-family:var(--fb);line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
@@ -26,29 +42,14 @@ input,textarea,select{font-family:inherit}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:2px}
 
-/* ── TOP BAR ── */
-.topbar{
-position:fixed;top:0;left:0;right:0;z-index:100;
-height:52px;display:flex;align-items:center;gap:0;
-background:rgba(8,8,8,.9);backdrop-filter:blur(20px);
-border-bottom:1px solid var(--border);
-}
-.topbar-logo{
-display:flex;align-items:center;gap:10px;padding:0 20px;
-font-family:var(--fd);font-weight:800;font-size:17px;
-border-right:1px solid var(--border);height:100%;flex-shrink:0;
-}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;gap:0;background:rgba(8,8,8,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.topbar-logo{display:flex;align-items:center;gap:10px;padding:0 20px;font-family:var(--fd);font-weight:800;font-size:17px;border-right:1px solid var(--border);height:100%;flex-shrink:0}
 .logo-sq{width:28px;height:28px;background:var(--accent);border-radius:7px;display:flex;align-items:center;justify-content:center}
 .logo-sq svg{width:16px;height:16px}
 .logo-crm{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);background:var(--bg-3);border:1px solid var(--border);padding:3px 7px;border-radius:100px}
 .topbar-nav{display:flex;height:100%;overflow-x:auto;flex:1}
 .topbar-nav::-webkit-scrollbar{height:0}
-.tnav-btn{
-display:flex;align-items:center;gap:7px;padding:0 18px;
-font-size:13px;font-weight:500;color:var(--text-3);
-border-right:1px solid var(--border);white-space:nowrap;
-transition:all .2s;cursor:pointer;height:100%;background:none;border-top:none;border-bottom:none;border-left:none;
-}
+.tnav-btn{display:flex;align-items:center;gap:7px;padding:0 18px;font-size:13px;font-weight:500;color:var(--text-3);border-right:1px solid var(--border);white-space:nowrap;transition:all .2s;cursor:pointer;height:100%;background:none;border-top:none;border-bottom:none;border-left:none}
 .tnav-btn:hover{color:var(--text);background:rgba(255,255,255,.03)}
 .tnav-btn.active{color:var(--accent);background:rgba(168,232,90,.05);border-bottom:2px solid var(--accent)}
 .tnav-badge{font-family:var(--fm);font-size:10px;background:var(--red);color:white;border-radius:100px;padding:1px 6px;min-width:18px;text-align:center}
@@ -59,17 +60,8 @@ transition:all .2s;cursor:pointer;height:100%;background:none;border-top:none;bo
 .logout-btn{font-size:12px;color:var(--text-3);padding:5px 10px;border:1px solid var(--border);border-radius:6px;transition:all .2s}
 .logout-btn:hover{color:var(--text);border-color:var(--border-2)}
 
-/* ── LOGIN SCREEN ── */
-.login-screen{
-position:fixed;inset:0;background:var(--bg);
-display:flex;align-items:center;justify-content:center;
-z-index:500;padding:24px;
-}
-.login-card{
-width:100%;max-width:400px;
-background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--r-lg);
-padding:48px 40px;text-align:center;
-}
+.login-screen{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:500;padding:24px}
+.login-card{width:100%;max-width:400px;background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--r-lg);padding:48px 40px;text-align:center}
 .login-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:32px;font-family:var(--fd);font-weight:800;font-size:22px}
 .login-title{font-family:var(--fd);font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
 .login-sub{font-size:14px;color:var(--text-3);margin-bottom:32px}
@@ -77,35 +69,27 @@ padding:48px 40px;text-align:center;
 .login-error.show{display:block}
 .login-hint{font-size:12px;color:var(--text-3);margin-top:16px;line-height:1.6}
 
-/* ── MAIN ── */
 .main{padding-top:52px;min-height:100vh}
 .page{padding:28px 24px;max-width:1200px;margin:0 auto;display:none}
 .page.active{display:block}
 
-/* ── PAGE HEADER ── */
 .ph{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px;gap:16px;flex-wrap:wrap}
 .ph-title{font-family:var(--fd);font-size:24px;font-weight:800;letter-spacing:-.03em}
 .ph-sub{font-size:13px;color:var(--text-3);margin-top:3px}
 .ph-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start}
 
-/* ── STAT CARDS ── */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
 .sc{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;transition:border-color .25s}
 .sc:hover{border-color:var(--border-2)}
 .sc-label{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);margin-bottom:8px}
 .sc-val{font-family:var(--fd);font-size:30px;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:4px}
 .sc-sub{font-size:12px;color:var(--text-3)}
-.c-accent{color:var(--accent)}
-.c-red{color:var(--red)}
-.c-yellow{color:var(--yellow)}
-.c-blue{color:var(--blue)}
+.c-accent{color:var(--accent)}.c-red{color:var(--red)}.c-yellow{color:var(--yellow)}.c-blue{color:var(--blue)}
 
-/* ── CARDS ── */
 .card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
 .card-hd{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .card-title{font-family:var(--fd);font-size:15px;font-weight:700;letter-spacing:-.02em}
 
-/* ── TABLE ── */
 .tbl{width:100%;border-collapse:collapse}
 .tbl th{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);padding:10px 20px;text-align:left;border-bottom:1px solid var(--border);background:var(--bg-3);white-space:nowrap}
 .tbl td{padding:12px 20px;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-2);vertical-align:middle}
@@ -117,7 +101,6 @@ padding:48px 40px;text-align:center;
 .empty-row td{text-align:center;padding:48px;color:var(--text-3);cursor:default!important}
 .empty-row td:hover{background:none!important;color:var(--text-3)!important}
 
-/* ── BADGES ── */
 .badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.09em;padding:3px 9px;border-radius:100px;white-space:nowrap}
 .badge::before{content:'';width:4px;height:4px;border-radius:50%;flex-shrink:0}
 .b-pending{background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.25);color:var(--yellow)}.b-pending::before{background:var(--yellow)}
@@ -130,7 +113,6 @@ padding:48px 40px;text-align:center;
 .b-paid{background:rgba(168,232,90,.12);border:1px solid rgba(168,232,90,.25);color:var(--accent)}.b-paid::before{background:var(--accent)}
 .b-unpaid{background:rgba(255,92,92,.1);border:1px solid rgba(255,92,92,.25);color:var(--red)}.b-unpaid::before{background:var(--red)}
 
-/* ── BUTTONS ── */
 .btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fb);font-weight:600;font-size:13px;padding:8px 16px;border-radius:9px;border:none;cursor:pointer;transition:all .2s;white-space:nowrap}
 .btn-primary{background:var(--accent);color:#080808}.btn-primary:hover{background:var(--accent-2);transform:translateY(-1px)}
 .btn-ghost{background:var(--surface);color:var(--text-2);border:1px solid var(--border-2)}.btn-ghost:hover{color:var(--text);border-color:var(--text-3)}
@@ -139,13 +121,11 @@ padding:48px 40px;text-align:center;
 .btn-blue{background:rgba(92,158,255,.1);color:var(--blue);border:1px solid rgba(92,158,255,.2)}.btn-blue:hover{background:rgba(92,158,255,.2)}
 .btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
 
-/* ── FILTER TABS ── */
 .ftabs{display:flex;gap:6px;flex-wrap:wrap}
 .ftab{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:5px 13px;border-radius:100px;border:1px solid var(--border);color:var(--text-3);cursor:pointer;background:none;transition:all .2s}
 .ftab:hover{border-color:var(--border-2);color:var(--text-2)}
 .ftab.active{border-color:rgba(168,232,90,.3);color:var(--accent);background:rgba(168,232,90,.08)}
 
-/* ── FORMS ── */
 .fg{display:flex;flex-direction:column;gap:5px;margin-bottom:16px}
 .fl{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3)}
 .fi{background:var(--surface);border:1px solid var(--border-2);border-radius:7px;padding:10px 13px;color:var(--text);font-family:var(--fb);font-size:14px;transition:border-color .2s,box-shadow .2s;outline:none;width:100%}
@@ -154,9 +134,7 @@ padding:48px 40px;text-align:center;
 select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a5a5a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px}
 textarea.fi{resize:vertical;min-height:90px}
 .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 
-/* ── MODAL ── */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
 .modal{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--r-lg);width:100%;max-width:600px;max-height:92vh;overflow-y:auto}
 .modal-hd{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--bg-2);z-index:1}
@@ -166,26 +144,20 @@ textarea.fi{resize:vertical;min-height:90px}
 .modal-body{padding:24px}
 .modal-ft{padding:16px 24px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:flex-end}
 
-/* ── DETAIL PANEL ── */
 .dp{background:var(--bg-3);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:18px}
 .dr{display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);gap:12px}
 .dr:last-child{border-bottom:none;padding-bottom:0}
 .dr-k{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);flex-shrink:0}
 .dr-v{font-size:13px;color:var(--text);text-align:right;word-break:break-word}
 
-/* ── 2-COL GRID ── */
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.col-span-2{grid-column:1/-1}
 
-/* ── SUCCESS FLASH ── */
 .flash{position:fixed;top:64px;right:20px;z-index:300;background:var(--bg-2);border:1px solid var(--accent);border-radius:var(--r);padding:12px 18px;font-size:13px;display:flex;align-items:center;gap:10px;transform:translateX(120%);transition:transform .3s cubic-bezier(.16,1,.3,1);max-width:300px}
 .flash.show{transform:none}
 .flash-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
 
-/* ── NOTES FIELD ── */
 .notes-box{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:16px}
 
-/* ── CALENDAR ── */
 .cal-wrap{display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}
 .cal-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
 .cal-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--border)}
@@ -201,7 +173,6 @@ textarea.fi{resize:vertical;min-height:90px}
 .cal-day.other-month .cal-day-num{color:var(--text-3)}
 .cal-day.today .cal-day-num{background:var(--accent);color:#080808;font-weight:800}
 .cal-day.blocked{background:rgba(255,92,92,.04)}
-.cal-day.blocked .cal-day-num{color:var(--red)}
 .cal-day.has-jobs{background:rgba(168,232,90,.03)}
 .cal-day.selected{background:rgba(168,232,90,.08);border-color:rgba(168,232,90,.2)}
 .cal-day-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;margin-bottom:4px;transition:background .15s}
@@ -221,14 +192,12 @@ textarea.fi{resize:vertical;min-height:90px}
 .detail-job-card{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:8px;cursor:pointer;transition:border-color .2s}
 .detail-job-card:hover{border-color:var(--border-2)}
 .detail-job-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
-.detail-job-svc{font-size:12px;color:var(--text-3)}
 .block-section{margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
 .block-title{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:8px}
 .block-reason-wrap{display:flex;gap:6px;margin-bottom:8px}
 .block-reason-input{flex:1;background:var(--surface);border:1px solid var(--border-2);border-radius:7px;padding:8px 10px;color:var(--text);font-family:var(--fb);font-size:13px;outline:none}
 .block-reason-input:focus{border-color:rgba(168,232,90,.4)}
-.blocked-list{display:flex;flex-direction:column;gap:6px;margin-top:8px}
-.blocked-item{display:flex;align-items:center;justify-content:space-between;background:rgba(255,92,92,.06);border:1px solid rgba(255,92,92,.15);border-radius:7px;padding:8px 10px;font-size:12px;color:var(--text-2)}
+.blocked-item{display:flex;align-items:center;justify-content:space-between;background:rgba(255,92,92,.06);border:1px solid rgba(255,92,92,.15);border-radius:7px;padding:8px 10px;font-size:12px;color:var(--text-2);margin-bottom:6px}
 .blocked-remove{background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px;opacity:.7;transition:opacity .2s}
 .blocked-remove:hover{opacity:1}
 .cal-book-btn{width:100%;background:var(--accent);color:#080808;font-family:var(--fb);font-weight:700;font-size:13px;padding:10px;border-radius:9px;border:none;cursor:pointer;transition:all .2s;margin-top:10px}
@@ -248,15 +217,14 @@ textarea.fi{resize:vertical;min-height:90px}
 .mini-day.has-job::after{content:'';position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--accent)}
 .mini-day.selected{background:rgba(168,232,90,.15);color:var(--accent)}
 .mini-day.other{opacity:.3}
-@media(max-width:900px){.cal-wrap{grid-template-columns:1fr}}
-@media(max-width:640px){.cal-day{min-height:52px}.cal-event{display:none}.cal-day-num{font-size:12px}}
-@media(max-width:900px){.stats-row{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}}
-@media(max-width:640px){.stats-row{grid-template-columns:1fr 1fr}.tbl th,.tbl td{padding:10px 14px}.form-row-2,.form-row-3{grid-template-columns:1fr}.topbar-user{display:none}.page{padding:20px 14px}}
+
+@media(max-width:900px){.cal-wrap{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}}
+@media(max-width:640px){.stats-row{grid-template-columns:1fr 1fr}.tbl th,.tbl td{padding:10px 14px}.form-row-2{grid-template-columns:1fr}.topbar-user{display:none}.page{padding:20px 14px}.cal-day{min-height:52px}.cal-event{display:none}}
 </style>
 </head>
 <body>
 
-<!-- ── LOGIN SCREEN ──────────────────────────────────────────── -->
+<!-- LOGIN -->
 <div class="login-screen" id="loginScreen">
 <div class="login-card">
 <div class="login-logo">
@@ -265,28 +233,20 @@ Kei<span style="color:var(--accent)">.</span>
 </div>
 <div class="login-title">CRM Dashboard</div>
 <p class="login-sub">Owner access only</p>
-<div class="fg">
-<label class="fl">Email</label>
-<input type="email" id="loginEmail" class="fi" placeholder="owner@keiservices.ca" autocomplete="email"/>
+<div style="background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:20px;display:flex;align-items:center;gap:8px">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+<span style="font-family:var(--fm);font-size:12px;color:var(--text-3)">keipropertyservices@gmail.com</span>
 </div>
 <div class="fg">
 <label class="fl">Password</label>
 <input type="password" id="loginPass" class="fi" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"/>
 </div>
 <button class="btn btn-primary" style="width:100%;justify-content:center;padding:11px;font-size:14px" onclick="doLogin()">Sign In</button>
-<div class="login-error" id="loginError">Incorrect credentials. Try again.</div>
-<p class="login-hint">
-<!--
-SETUP: In the doLogin() function below, replace the hardcoded
-credentials with a Supabase Auth call. See dashboard/SETUP.md.
-Default demo: email=owner@kei.com / password=kei2025
--->
-Demo mode: <strong style="color:var(--text-2)">owner@kei.com</strong> / <strong style="color:var(--text-2)">kei2025</strong>
-</p>
+<div class="login-error" id="loginError">Incorrect password. Try again.</div>
 </div>
 </div>
 
-<!-- ── TOP BAR ──────────────────────────────────────────────── -->
+<!-- TOPBAR -->
 <div class="topbar" id="topbar" style="display:none">
 <div class="topbar-logo">
 <div class="logo-sq"><svg viewBox="0 0 18 18" fill="none"><path d="M2 13L6 7 9 10 12 5 16 13" stroke="#080808" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -321,24 +281,23 @@ Calendar
 </div>
 <div class="topbar-user">
 <div class="user-dot"></div>
-<span class="user-name" id="userNameDisplay">Owner</span>
+<span class="user-name" id="userNameDisplay">keipropertyservices</span>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+<svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
 <button class="logout-btn" onclick="doLogout()">Sign out</button>
 </div>
 </div>
 
-<!-- ── FLASH MESSAGE ── -->
 <div class="flash" id="flash"><div class="flash-dot"></div><span id="flashMsg"></span></div>
 
-<!-- ── MAIN ──────────────────────────────────────────────────── -->
 <div class="main" id="mainContent" style="display:none">
 
-<!-- DASHBOARD ── -->
+<!-- DASHBOARD -->
 <div class="page active" id="page-dashboard">
 <div class="ph">
-<div>
-<div class="ph-title">Dashboard</div>
-<div class="ph-sub" id="dashDate"></div>
-</div>
+<div><div class="ph-title">Dashboard</div><div class="ph-sub" id="dashDate"></div></div>
 <div class="ph-actions">
 <button class="btn btn-ghost btn-sm" onclick="openModal('modalCustomer')">+ Customer</button>
 <button class="btn btn-primary btn-sm" onclick="openModal('modalJob')">+ New Job</button>
@@ -350,25 +309,21 @@ Calendar
 <div class="sc"><div class="sc-label">Unpaid</div><div class="sc-val c-red" id="d-unpaid">$0</div><div class="sc-sub">outstanding</div></div>
 <div class="sc"><div class="sc-label">Revenue</div><div class="sc-val c-accent" id="d-revenue">$0</div><div class="sc-sub">collected total</div></div>
 </div>
-<div class="grid-2" style="gap:18px">
+<div class="grid-2">
 <div class="card">
 <div class="card-hd"><div class="card-title">Recent Quotes</div><button class="btn btn-ghost btn-sm" onclick="showPage('quotes',null)">View all</button></div>
-<table class="tbl"><thead><tr><th>Name</th><th>Service</th><th>Status</th></tr></thead>
-<tbody id="d-quote-rows"></tbody></table>
+<table class="tbl"><thead><tr><th>Name</th><th>Service</th><th>Status</th></tr></thead><tbody id="d-quote-rows"></tbody></table>
 </div>
 <div class="card">
 <div class="card-hd"><div class="card-title">Upcoming Jobs</div><button class="btn btn-ghost btn-sm" onclick="showPage('jobs',null)">View all</button></div>
-<table class="tbl"><thead><tr><th>Customer</th><th>Date</th><th>Price</th><th>Status</th></tr></thead>
-<tbody id="d-job-rows"></tbody></table>
+<table class="tbl"><thead><tr><th>Customer</th><th>Date</th><th>Price</th><th>Status</th></tr></thead><tbody id="d-job-rows"></tbody></table>
 </div>
 </div>
 </div>
 
-<!-- QUOTES ── -->
+<!-- QUOTES -->
 <div class="page" id="page-quotes">
-<div class="ph">
-<div><div class="ph-title">Quote Requests</div><div class="ph-sub" id="quotes-count"></div></div>
-</div>
+<div class="ph"><div><div class="ph-title">Quote Requests</div><div class="ph-sub" id="quotes-count"></div></div></div>
 <div class="card">
 <div class="card-hd">
 <div class="ftabs" id="quote-filters">
@@ -381,30 +336,26 @@ Calendar
 </div>
 </div>
 <div style="overflow-x:auto">
-<table class="tbl"><thead><tr><th>Name</th><th>Phone</th><th>Service</th><th>Address</th><th>Date</th><th>Status</th><th></th></tr></thead>
-<tbody id="quotes-tbody"></tbody></table>
+<table class="tbl"><thead><tr><th>Name</th><th>Phone</th><th>Service</th><th>Address</th><th>Date</th><th>Status</th><th></th></tr></thead><tbody id="quotes-tbody"></tbody></table>
 </div>
 </div>
 </div>
 
-<!-- CUSTOMERS ── -->
+<!-- CUSTOMERS -->
 <div class="page" id="page-customers">
 <div class="ph">
 <div><div class="ph-title">Customers</div><div class="ph-sub" id="cust-count"></div></div>
 <div class="ph-actions"><button class="btn btn-primary btn-sm" onclick="openModal('modalCustomer')">+ Add Customer</button></div>
 </div>
 <div class="card">
-<div class="card-hd">
-<input class="fi" id="cust-search" placeholder="Search by name, phone, or email…" style="max-width:300px;padding:7px 12px;font-size:13px" oninput="renderCustomers()"/>
-</div>
+<div class="card-hd"><input class="fi" id="cust-search" placeholder="Search by name, phone, or email…" style="max-width:300px;padding:7px 12px;font-size:13px" oninput="renderCustomers()"/></div>
 <div style="overflow-x:auto">
-<table class="tbl"><thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Address</th><th>Notes</th><th></th></tr></thead>
-<tbody id="cust-tbody"></tbody></table>
+<table class="tbl"><thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Address</th><th>Notes</th><th></th></tr></thead><tbody id="cust-tbody"></tbody></table>
 </div>
 </div>
 </div>
 
-<!-- JOBS ── -->
+<!-- JOBS -->
 <div class="page" id="page-jobs">
 <div class="ph">
 <div><div class="ph-title">Jobs</div><div class="ph-sub" id="jobs-count"></div></div>
@@ -420,17 +371,14 @@ Calendar
 </div>
 </div>
 <div style="overflow-x:auto">
-<table class="tbl"><thead><tr><th>Customer</th><th>Service</th><th>Date</th><th>Price</th><th>Status</th><th></th></tr></thead>
-<tbody id="jobs-tbody"></tbody></table>
+<table class="tbl"><thead><tr><th>Customer</th><th>Service</th><th>Date</th><th>Price</th><th>Status</th><th></th></tr></thead><tbody id="jobs-tbody"></tbody></table>
 </div>
 </div>
 </div>
 
-<!-- PAYMENTS ── -->
+<!-- PAYMENTS -->
 <div class="page" id="page-payments">
-<div class="ph">
-<div><div class="ph-title">Payments</div><div class="ph-sub">Track revenue and outstanding balances</div></div>
-</div>
+<div class="ph"><div><div class="ph-title">Payments</div><div class="ph-sub">Track revenue and outstanding balances</div></div></div>
 <div class="stats-row" style="grid-template-columns:repeat(3,1fr)">
 <div class="sc"><div class="sc-label">Collected</div><div class="sc-val c-accent" id="p-collected">$0</div><div class="sc-sub" id="p-collected-sub"></div></div>
 <div class="sc"><div class="sc-label">Outstanding</div><div class="sc-val c-red" id="p-outstanding">$0</div><div class="sc-sub" id="p-outstanding-sub"></div></div>
@@ -438,27 +386,27 @@ Calendar
 </div>
 <div class="card">
 <div style="overflow-x:auto">
-<table class="tbl"><thead><tr><th>Job</th><th>Customer</th><th>Amount</th><th>Method</th><th>Status</th><th></th></tr></thead>
-<tbody id="pay-tbody"></tbody></table>
+<table class="tbl"><thead><tr><th>Job</th><th>Customer</th><th>Amount</th><th>Method</th><th>Status</th><th></th></tr></thead><tbody id="pay-tbody"></tbody></table>
 </div>
 </div>
 </div>
 
-<!-- CALENDAR ── -->
+<!-- CALENDAR -->
 <div class="page" id="page-calendar">
 <div class="ph">
-<div><div class="ph-title">Calendar</div><div class="ph-sub" id="cal-sub">Schedule jobs and block off days</div></div>
+<div><div class="ph-title">Calendar</div><div class="ph-sub">Click to select · Shift+click for range · Block days</div></div>
 <div class="ph-actions">
 <button class="btn btn-ghost btn-sm" onclick="calToday()">Today</button>
 <button class="btn btn-primary btn-sm" onclick="openModal('modalJob')">+ New Job</button>
 </div>
 </div>
 <div class="cal-wrap">
-<!-- MAIN CALENDAR -->
 <div class="cal-card">
 <div class="cal-header">
 <div class="cal-month" id="calMonthLabel"></div>
 <div style="display:flex;align-items:center;gap:12px">
+<div id="calSelCount" style="font-family:var(--fm);font-size:11px;color:var(--text-3);display:none"></div>
+<button class="btn btn-ghost btn-sm" onclick="clearCalSelection()" id="calClearBtn" style="display:none">Clear</button>
 <div class="cal-nav">
 <button class="cal-nav-btn" onclick="calMove(-1)">‹</button>
 <button class="cal-nav-btn" onclick="calMove(1)">›</button>
@@ -468,11 +416,7 @@ Calendar
 <div class="cal-grid" id="calDayLabels"></div>
 <div class="cal-grid" id="calDays"></div>
 </div>
-
-<!-- SIDEBAR -->
 <div class="cal-side">
-
-<!-- MINI MONTH NAV -->
 <div class="cal-legend" style="padding:16px">
 <div class="mini-month-header">
 <div class="mini-month-title" id="miniMonthLabel"></div>
@@ -484,122 +428,93 @@ Calendar
 <div class="mini-cal-grid" id="miniDayLabels"></div>
 <div class="mini-cal-grid" id="miniDays"></div>
 </div>
-
-<!-- SELECTED DAY DETAIL -->
 <div class="cal-day-detail" id="calDayDetail">
 <div class="cal-day-detail-title" id="calDetailTitle">Select a day</div>
-<div class="cal-day-detail-sub" id="calDetailSub">Click any date to see details</div>
+<div class="cal-day-detail-sub" id="calDetailSub">Click any date to manage it</div>
 <div id="calDetailJobs"></div>
-
-<!-- BLOCK CONTROLS -->
 <div class="block-section" id="blockSection" style="display:none">
-<div class="block-title">Block This Day</div>
+<div class="block-title" style="margin-bottom:8px">Block Color</div>
+<div class="color-picker-wrap" id="blockColorPicker">
+<div class="color-swatch active" data-color="red" style="background:#ff5c5c" title="Unavailable" onclick="selectBlockColor(this,'red')"></div>
+<div class="color-swatch" data-color="orange" style="background:#ff8c42" title="Personal" onclick="selectBlockColor(this,'orange')"></div>
+<div class="color-swatch" data-color="yellow" style="background:#f5c842" title="Holiday" onclick="selectBlockColor(this,'yellow')"></div>
+<div class="color-swatch" data-color="purple" style="background:#a78bfa" title="School" onclick="selectBlockColor(this,'purple')"></div>
+<div class="color-swatch" data-color="blue" style="background:#5c9eff" title="Weather" onclick="selectBlockColor(this,'blue')"></div>
+<div class="color-swatch" data-color="grey" style="background:#888888" title="Other" onclick="selectBlockColor(this,'grey')"></div>
+</div>
+<div class="block-title" style="margin-top:10px">Reason</div>
 <div class="block-reason-wrap">
-<input class="block-reason-input" id="blockReason" placeholder="Reason (optional)…"/>
-<button class="btn btn-danger btn-sm" onclick="toggleBlock()">Block</button>
+<input class="block-reason-input" id="blockReason" placeholder="e.g. School, Holiday, Personal…"/>
 </div>
-<div class="cal-book-btn-wrap">
-<button class="cal-book-btn" id="calBookBtn" onclick="bookJobOnDay()">+ Book Job on This Day</button>
+<div style="display:flex;gap:8px;margin-top:8px">
+<button class="btn btn-danger btn-sm" onclick="applyBlock()" style="flex:1;justify-content:center">Block Selected</button>
+<button class="btn btn-ghost btn-sm" onclick="applyUnblock()" style="flex:1;justify-content:center">Unblock</button>
+</div>
+<button class="cal-book-btn" id="calBookBtn" onclick="bookJobOnDay()" style="margin-top:10px">+ Book Job on This Day</button>
 </div>
 </div>
-</div>
-
-<!-- LEGEND -->
 <div class="cal-legend">
 <div class="cal-legend-title">Legend</div>
-<div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Scheduled</div>
+<div class="legend-item"><div class="legend-dot" style="background:#ff5c5c"></div>Unavailable</div>
+<div class="legend-item"><div class="legend-dot" style="background:#ff8c42"></div>Personal</div>
+<div class="legend-item"><div class="legend-dot" style="background:#f5c842"></div>Holiday</div>
+<div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div>School</div>
+<div class="legend-item"><div class="legend-dot" style="background:#5c9eff"></div>Weather</div>
+<div class="legend-item"><div class="legend-dot" style="background:#888888"></div>Other</div>
+<div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+<div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Job Scheduled</div>
 <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div>In Progress</div>
 <div class="legend-item"><div class="legend-dot" style="background:#7cc84a"></div>Completed</div>
-<div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Blocked Day</div>
 </div>
-
-<!-- BLOCKED DAYS LIST -->
+</div>
 <div class="cal-legend" id="blockedListCard">
 <div class="cal-legend-title">Blocked Days</div>
-<div id="blockedDaysList"><div style="font-size:13px;color:var(--text-3)">No days blocked yet</div></div>
+<div id="blockedDaysList"><div style="font-size:13px;color:var(--text-3)">No days blocked</div></div>
+</div>
+</div>
+</div>
 </div>
 
-</div>
-</div>
-</div>
+</div><!-- /main -->
 
-<!-- ── MODALS ─────────────────────────────────────────────────── -->
+<!-- MODALS -->
 
-<!-- Quote Detail Modal -->
+<!-- Quote Modal -->
 <div class="overlay" id="modalQuote" style="display:none" onclick="if(event.target===this)closeModal('modalQuote')">
 <div class="modal">
-<div class="modal-hd">
-<div class="modal-title" id="mq-name">Quote Details</div>
-<button class="modal-x" onclick="closeModal('modalQuote')">✕</button>
-</div>
+<div class="modal-hd"><div class="modal-title" id="mq-name">Quote Details</div><button class="modal-x" onclick="closeModal('modalQuote')">✕</button></div>
 <div class="modal-body">
-
-<!-- Quick contact actions -->
 <div style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap">
 <a id="mq-call-btn" href="#" class="btn btn-primary btn-sm">
 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.58a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
 Call
 </a>
-<a id="mq-sms-btn" href="#" class="btn btn-ghost btn-sm">
-<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-Text
-</a>
-<a id="mq-email-btn" href="#" class="btn btn-ghost btn-sm" id="mq-email-action">
-<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-Email
-</a>
-<a id="mq-maps-btn" href="#" target="_blank" class="btn btn-ghost btn-sm">
-<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-Maps ↗
-</a>
+<a id="mq-sms-btn" href="#" class="btn btn-ghost btn-sm">Text</a>
+<a id="mq-email-btn" href="#" class="btn btn-ghost btn-sm">Email</a>
+<a id="mq-maps-btn" href="#" target="_blank" class="btn btn-ghost btn-sm">Maps ↗</a>
 </div>
-
-<!-- Details -->
 <div class="dp">
 <div class="dr"><span class="dr-k">Service</span><span class="dr-v" id="mq-service"></span></div>
 <div class="dr"><span class="dr-k">Phone</span><span class="dr-v"><a id="mq-phone" href="#" style="color:var(--accent)"></a></span></div>
 <div class="dr"><span class="dr-k">Email</span><span class="dr-v" id="mq-email"></span></div>
-<div class="dr">
-<span class="dr-k">Address</span>
-<span class="dr-v"><a id="mq-address" href="#" target="_blank" style="color:var(--accent);text-decoration:none"></a></span>
-</div>
+<div class="dr"><span class="dr-k">Address</span><span class="dr-v"><a id="mq-address" href="#" target="_blank" style="color:var(--accent)"></a></span></div>
 <div class="dr"><span class="dr-k">Received</span><span class="dr-v" id="mq-date"></span></div>
 <div class="dr"><span class="dr-k">Status</span><span class="dr-v" id="mq-status"></span></div>
 </div>
-
-<!-- Message -->
 <div id="mq-msg-wrap" style="margin-bottom:18px">
 <div class="fl" style="margin-bottom:6px">Customer Message</div>
 <div class="notes-box" id="mq-msg"></div>
 </div>
-
-<!-- Send Quote to Customer -->
 <div style="background:var(--bg-3);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:18px">
 <div class="fl" style="margin-bottom:10px">📤 Send Quote to Customer</div>
 <div class="form-row-2" style="margin-bottom:10px">
-<div class="fg" style="margin-bottom:0">
-<label class="fl">Your Price ($)</label>
-<input class="fi" id="mq-quote-price" type="number" placeholder="e.g. 200" style="font-size:16px;font-weight:600"/>
+<div class="fg" style="margin-bottom:0"><label class="fl">Your Price ($)</label><input class="fi" id="mq-quote-price" type="number" placeholder="e.g. 200"/></div>
+<div class="fg" style="margin-bottom:0"><label class="fl">Send via</label><select class="fi" id="mq-quote-method"><option value="sms">Text (SMS)</option><option value="email">Email</option></select></div>
 </div>
-<div class="fg" style="margin-bottom:0">
-<label class="fl">Send via</label>
-<select class="fi" id="mq-quote-method">
-<option value="sms">Text Message (SMS)</option>
-<option value="email">Email</option>
-</select>
+<div class="fg" style="margin-bottom:10px"><label class="fl">Optional note</label><input class="fi" id="mq-quote-note" placeholder="e.g. Includes disposal. Available Tue/Wed."/></div>
+<button class="btn btn-primary" style="width:100%;justify-content:center" onclick="sendQuoteToCustomer()">Send Quote →</button>
+<div style="font-size:11px;color:var(--text-3);margin-top:8px;text-align:center">Opens your SMS or email app pre-filled.</div>
 </div>
-</div>
-<div class="fg" style="margin-bottom:10px">
-<label class="fl">Optional note</label>
-<input class="fi" id="mq-quote-note" placeholder="e.g. Includes disposal. Available Tue or Wed." style="font-size:13px"/>
-</div>
-<button class="btn btn-primary" style="width:100%;justify-content:center" onclick="sendQuoteToCustomer()">
-Send Quote to Customer →
-</button>
-<div style="font-size:11px;color:var(--text-3);margin-top:8px;text-align:center">Opens your SMS or email app pre-filled — you hit send.</div>
-</div>
-
-<!-- Status -->
 <div>
 <div class="fl" style="margin-bottom:10px">Update Status</div>
 <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -621,10 +536,7 @@ Send Quote to Customer →
 <!-- Add Customer Modal -->
 <div class="overlay" id="modalCustomer" style="display:none" onclick="if(event.target===this)closeModal('modalCustomer')">
 <div class="modal">
-<div class="modal-hd">
-<div class="modal-title">Add Customer</div>
-<button class="modal-x" onclick="closeModal('modalCustomer')">✕</button>
-</div>
+<div class="modal-hd"><div class="modal-title">Add Customer</div><button class="modal-x" onclick="closeModal('modalCustomer')">✕</button></div>
 <div class="modal-body">
 <div class="form-row-2">
 <div class="fg"><label class="fl">First Name *</label><input class="fi" id="c-first" placeholder="Alex"/></div>
@@ -635,7 +547,7 @@ Send Quote to Customer →
 <div class="fg"><label class="fl">Email</label><input class="fi" id="c-email" placeholder="alex@email.com"/></div>
 </div>
 <div class="fg"><label class="fl">Address</label><input class="fi" id="c-address" placeholder="123 Maple St, Ottawa"/></div>
-<div class="fg"><label class="fl">Notes</label><textarea class="fi" id="c-notes" placeholder="Prefers mornings. Has a dog. Repeat customer."></textarea></div>
+<div class="fg"><label class="fl">Notes</label><textarea class="fi" id="c-notes" placeholder="Prefers mornings. Has a dog."></textarea></div>
 </div>
 <div class="modal-ft">
 <button class="btn btn-ghost" onclick="closeModal('modalCustomer')">Cancel</button>
@@ -647,10 +559,7 @@ Send Quote to Customer →
 <!-- Add Job Modal -->
 <div class="overlay" id="modalJob" style="display:none" onclick="if(event.target===this)closeModal('modalJob')">
 <div class="modal">
-<div class="modal-hd">
-<div class="modal-title">New Job</div>
-<button class="modal-x" onclick="closeModal('modalJob')">✕</button>
-</div>
+<div class="modal-hd"><div class="modal-title">New Job</div><button class="modal-x" onclick="closeModal('modalJob')">✕</button></div>
 <div class="modal-body">
 <div class="fg"><label class="fl">Customer Name *</label><input class="fi" id="j-customer" placeholder="Customer name"/></div>
 <div class="form-row-2">
@@ -677,7 +586,7 @@ Send Quote to Customer →
 </select>
 </div>
 </div>
-<div class="fg"><label class="fl">Notes</label><textarea class="fi" id="j-notes" placeholder="Job details, access instructions, customer requests…"></textarea></div>
+<div class="fg"><label class="fl">Notes</label><textarea class="fi" id="j-notes" placeholder="Job details, access instructions…"></textarea></div>
 </div>
 <div class="modal-ft">
 <button class="btn btn-ghost" onclick="closeModal('modalJob')">Cancel</button>
@@ -689,20 +598,14 @@ Send Quote to Customer →
 <!-- Mark Paid Modal -->
 <div class="overlay" id="modalPay" style="display:none" onclick="if(event.target===this)closeModal('modalPay')">
 <div class="modal" style="max-width:420px">
-<div class="modal-hd">
-<div class="modal-title">Mark as Paid</div>
-<button class="modal-x" onclick="closeModal('modalPay')">✕</button>
-</div>
+<div class="modal-hd"><div class="modal-title">Mark as Paid</div><button class="modal-x" onclick="closeModal('modalPay')">✕</button></div>
 <div class="modal-body">
 <div class="dp" style="margin-bottom:18px">
 <div class="dr"><span class="dr-k">Job</span><span class="dr-v" id="mp-job"></span></div>
 <div class="dr"><span class="dr-k">Amount</span><span class="dr-v c-accent" id="mp-amount"></span></div>
 </div>
 <div class="fg"><label class="fl">Payment Method</label>
-<select class="fi" id="mp-method">
-<option value="e-transfer">E-Transfer</option>
-<option value="cash">Cash</option>
-</select>
+<select class="fi" id="mp-method"><option value="e-transfer">E-Transfer</option><option value="cash">Cash</option></select>
 </div>
 </div>
 <div class="modal-ft">
@@ -712,41 +615,38 @@ Send Quote to Customer →
 </div>
 </div>
 
+<!-- Job Calendar Picker Modal -->
+<div class="overlay" id="modalJobCal" style="display:none" onclick="if(event.target===this)closeModal('modalJobCal')">
+<div class="modal" style="max-width:500px">
+<div class="modal-hd"><div class="modal-title">Pick a Date for This Job</div><button class="modal-x" onclick="closeModal('modalJobCal')">✕</button></div>
+<div class="modal-body" style="padding:16px">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+<div style="font-family:var(--fd);font-size:16px;font-weight:700" id="jobCalMonthLabel"></div>
+<div style="display:flex;gap:6px">
+<button class="cal-nav-btn" onclick="jobCalMove(-1)">‹</button>
+<button class="cal-nav-btn" onclick="jobCalMove(1)">›</button>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px" id="jobCalLabels"></div>
+<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:16px" id="jobCalGrid"></div>
+<div style="background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:12px">
+<div style="font-size:11px;font-family:var(--fm);color:var(--text-3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px">Selected Date</div>
+<div id="jobCalSelected" style="font-size:15px;font-weight:600;color:var(--text)">No date selected</div>
+<div id="jobCalBlockWarn" style="font-size:12px;color:var(--red);margin-top:4px;display:none"></div>
+</div>
+</div>
+<div class="modal-ft">
+<button class="btn btn-ghost" onclick="closeModal('modalJobCal')">Cancel</button>
+<button class="btn btn-primary" id="jobCalConfirmBtn" onclick="confirmJobCalDate()" disabled>Confirm Date →</button>
+</div>
+</div>
+</div>
+
 <script>
-// ══════════════════════════════════════════════════════════════
-// KEI SERVICES CRM — FULL CLIENT-SIDE LOGIC
-// Data persists in localStorage. Connect Supabase for production.
-// See SETUP.md for Supabase integration steps.
-// ══════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════
+// KEI SERVICES CRM — FULL LOGIC
+// ═══════════════════════════════════════════
 
-// ── SUPABASE CONFIG (optional — leave blank to use localStorage) ──
-            var SUPABASE_URL  = 'https://wfvtebndsmqkxqqpmslm.supabase.co';        // e.g. https://xyzxyz.supabase.co
-            var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmdnRlYm5kc21xa3hxcXBtc2xtIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODg4Nzc2OCwiZXhwIjoyMDk0NDYzNzY4fQ.SD0E75O78i_CdbEU_c-ykWvq5kfH7SSa5T0pmOiZ1fY';   // from Settings → API
-
-var useSupabase = SUPABASE_URL !== '' && SUPABASE_ANON !== '';
-
-// ── SAMPLE DATA (pre-loaded on first run) ────────────────────
-var SAMPLE_QUOTES = [
-{id:uid(),name:'Sarah Mitchell',phone:'(613) 482-9210',email:'sarah.m@gmail.com',address:'44 Sycamore Dr, Barrhaven',service_type:'junk removal',message:'Full garage cleanout — old appliances, furniture, boxes of stuff. Needs to be done before the 20th.',status:'pending',created_at:today(-1)},
-{id:uid(),name:'Derek Pham',phone:'(613) 771-3344',email:'',address:'19 Ridgeline Cres, Kanata',service_type:'landscaping',message:'Need sod installed in backyard, roughly 400 sq ft.',status:'quoted',created_at:today(-2)},
-{id:uid(),name:'Amy Nguyen',phone:'(613) 600-5512',email:'amy@outlook.ca',address:'88 Riverside Dr S, Ottawa',service_type:'pressure washing',message:'Driveway + front walkway, about 1000 sq ft total.',status:'approved',created_at:today(-3)},
-{id:uid(),name:'Tom Clarke',phone:'(343) 229-0001',email:'tclarke@hotmail.com',address:'7 Elmwood Ave, Nepean',service_type:'yard cleanup',message:'Spring cleanup — leaves, dead branches, edge flower beds.',status:'completed',created_at:today(-5)},
-{id:uid(),name:'Priya Sharma',phone:'(613) 814-7723',email:'priya.s@gmail.com',address:'212 Meadowbrook Rd, Orleans',service_type:'junk removal',message:'Basement junk — old gym equipment, boxes, broken furniture.',status:'pending',created_at:today(0)},
-];
-var SAMPLE_CUSTOMERS = [
-{id:uid(),name:'Amy Nguyen',phone:'(613) 600-5512',email:'amy@outlook.ca',address:'88 Riverside Dr S, Ottawa',notes:'Prefers morning appointments. Has a dog.',created_at:today(-3)},
-{id:uid(),name:'Tom Clarke',phone:'(343) 229-0001',email:'tclarke@hotmail.com',address:'7 Elmwood Ave, Nepean',notes:'Repeat customer. Always pays e-transfer.',created_at:today(-10)},
-];
-var SAMPLE_JOBS = [
-{id:uid(),customer_name:'Amy Nguyen',service_type:'pressure washing',scheduled_date:today(2),status:'scheduled',price:280,notes:'Driveway + walkway. Customer home all day.',created_at:today(-3)},
-{id:uid(),customer_name:'Tom Clarke',service_type:'yard cleanup',scheduled_date:today(-5),status:'completed',price:160,notes:'Spring cleanup done. Customer happy.',created_at:today(-5)},
-];
-var SAMPLE_PAYMENTS = [
-{id:uid(),job_id:SAMPLE_JOBS[1]?SAMPLE_JOBS[1].id:'',customer_name:'Tom Clarke',service_type:'yard cleanup',amount:160,status:'paid',method:'e-transfer',created_at:today(-5)},
-{id:uid(),job_id:SAMPLE_JOBS[0]?SAMPLE_JOBS[0].id:'',customer_name:'Amy Nguyen',service_type:'pressure washing',amount:280,status:'unpaid',method:'',created_at:today(-3)},
-];
-
-// ── STATE ────────────────────────────────────────────────────
 var DB = { quotes:[], customers:[], jobs:[], payments:[] };
 var activeQuoteId = null;
 var activePayId = null;
@@ -757,123 +657,112 @@ var loggedIn = false;
 // ── HELPERS ──────────────────────────────────────────────────
 function uid(){ return 'id-' + Math.random().toString(36).substr(2,9) + Date.now(); }
 function today(offset){
-var d = new Date();
-d.setDate(d.getDate() + (offset||0));
-return d.toISOString().split('T')[0];
+  var d = new Date();
+  d.setDate(d.getDate() + (offset||0));
+  return d.toISOString().split('T')[0];
 }
 function fmtDate(s){
-if(!s) return '—';
-var d = new Date(s + 'T12:00:00');
-return d.toLocaleDateString('en-CA',{month:'short',day:'numeric',year:'numeric'});
+  if(!s) return '—';
+  var d = new Date(s + 'T12:00:00');
+  return d.toLocaleDateString('en-CA',{month:'short',day:'numeric',year:'numeric'});
 }
 function fmt$(n){ return '$' + (Number(n)||0).toLocaleString(); }
 function cap(s){ return s ? s.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()) : '—'; }
 function svcLabel(s){
-var m={'junk removal':'Junk Removal','landscaping':'Landscaping','pressure washing':'Pressure Washing',
-'yard cleanup':'Yard Cleanup','mulch installation':'Mulch Installation','seasonal cleanup':'Seasonal Cleanup',
-'multiple':'Multiple','not sure':'Not Sure'};
-return m[s]||cap(s);
+  var m={'junk removal':'Junk Removal','landscaping':'Landscaping','pressure washing':'Pressure Washing',
+    'yard cleanup':'Yard Cleanup','mulch installation':'Mulch Installation','seasonal cleanup':'Seasonal Cleanup',
+    'multiple':'Multiple','not sure':'Not Sure'};
+  return m[s]||cap(s);
 }
 function badge(status){
-return '<span class="badge b-'+status+'">'+cap(status)+'</span>';
+  return '<span class="badge b-'+status+'">'+cap(status)+'</span>';
 }
 function save(){ localStorage.setItem('kei-crm-v2', JSON.stringify(DB)); }
 function load(){
-var raw = localStorage.getItem('kei-crm-v2');
-if(raw){ try{ DB = JSON.parse(raw); }catch(e){} }
-else {
-DB.quotes = SAMPLE_QUOTES;
-DB.customers = SAMPLE_CUSTOMERS;
-DB.jobs = SAMPLE_JOBS;
-DB.payments = SAMPLE_PAYMENTS;
-save();
-}
-}
-
-// ── SUPABASE FETCH (optional) ─────────────────────────────────
-async function sbFetch(table, opts){
-if(!useSupabase) return null;
-opts = opts || {};
-var url = SUPABASE_URL + '/rest/v1/' + table;
-if(opts.select) url += '?select=*';
-if(opts.eq) url += (url.includes('?')?'&':'?') + opts.eq + '=eq.' + opts.eqVal;
-var headers = {'apikey':SUPABASE_ANON,'Authorization':'Bearer '+SUPABASE_ANON,'Content-Type':'application/json','Prefer':'return=representation'};
-var res = await fetch(url, {method:opts.method||'GET', headers:headers, body:opts.body?JSON.stringify(opts.body):undefined});
-return res.ok ? await res.json() : null;
-}
-async function loadFromSupabase(){
-if(!useSupabase) return;
-var [q,c,j,p] = await Promise.all([
-sbFetch('quote_requests',{select:'*'}),
-sbFetch('customers',{select:'*'}),
-sbFetch('jobs',{select:'*'}),
-sbFetch('payments',{select:'*'})
-]);
-if(q) DB.quotes = q;
-if(c) DB.customers = c;
-if(j) DB.jobs = j;
-if(p) DB.payments = p;
+  var raw = localStorage.getItem('kei-crm-v2');
+  if(raw){ try{ DB = JSON.parse(raw); }catch(e){} }
+  else {
+    var q1=uid(),q2=uid(),q3=uid(),q4=uid(),q5=uid();
+    var j1=uid(),j2=uid();
+    DB.quotes = [
+      {id:q1,name:'Sarah Mitchell',phone:'(613) 482-9210',email:'sarah.m@gmail.com',address:'44 Sycamore Dr, Barrhaven',service_type:'junk removal',message:'Full garage cleanout — old appliances, furniture, boxes of stuff. Needs to be done before the 20th.',status:'pending',created_at:today(-1)},
+      {id:q2,name:'Derek Pham',phone:'(613) 771-3344',email:'',address:'19 Ridgeline Cres, Kanata',service_type:'landscaping',message:'Need sod installed in backyard, roughly 400 sq ft.',status:'quoted',created_at:today(-2)},
+      {id:q3,name:'Amy Nguyen',phone:'(613) 600-5512',email:'amy@outlook.ca',address:'88 Riverside Dr S, Ottawa',service_type:'pressure washing',message:'Driveway + front walkway, about 1000 sq ft total.',status:'approved',created_at:today(-3)},
+      {id:q4,name:'Tom Clarke',phone:'(343) 229-0001',email:'tclarke@hotmail.com',address:'7 Elmwood Ave, Nepean',service_type:'yard cleanup',message:'Spring cleanup — leaves, dead branches, edge flower beds.',status:'completed',created_at:today(-5)},
+      {id:q5,name:'Priya Sharma',phone:'(613) 814-7723',email:'priya.s@gmail.com',address:'212 Meadowbrook Rd, Orleans',service_type:'junk removal',message:'Basement junk — old gym equipment, boxes, broken furniture.',status:'pending',created_at:today(0)},
+    ];
+    DB.customers = [
+      {id:uid(),name:'Amy Nguyen',phone:'(613) 600-5512',email:'amy@outlook.ca',address:'88 Riverside Dr S, Ottawa',notes:'Prefers morning appointments. Has a dog.',created_at:today(-3)},
+      {id:uid(),name:'Tom Clarke',phone:'(343) 229-0001',email:'tclarke@hotmail.com',address:'7 Elmwood Ave, Nepean',notes:'Repeat customer. Always pays e-transfer.',created_at:today(-10)},
+    ];
+    DB.jobs = [
+      {id:j1,customer_name:'Amy Nguyen',service_type:'pressure washing',scheduled_date:today(2),status:'scheduled',price:280,notes:'Driveway + walkway.',created_at:today(-3)},
+      {id:j2,customer_name:'Tom Clarke',service_type:'yard cleanup',scheduled_date:today(-5),status:'completed',price:160,notes:'Spring cleanup done.',created_at:today(-5)},
+    ];
+    DB.payments = [
+      {id:uid(),job_id:j2,customer_name:'Tom Clarke',service_type:'yard cleanup',amount:160,status:'paid',method:'e-transfer',created_at:today(-5)},
+      {id:uid(),job_id:j1,customer_name:'Amy Nguyen',service_type:'pressure washing',amount:280,status:'unpaid',method:'',created_at:today(-3)},
+    ];
+    save();
+  }
 }
 
 // ── AUTH ─────────────────────────────────────────────────────
-// Simple local auth for demo. Replace with supabase.auth.signInWithPassword() for production.
-async function doLogin(){
-var email = document.getElementById('loginEmail').value.trim();
-var pass = document.getElementById('loginPass').value;
-var err = document.getElementById('loginError');
-err.classList.remove('show');
+var OWNER_EMAIL = 'keipropertyservices@gmail.com';
+var OWNER_PASSWORD = 'kei2025';
+var OWNER_NAME = 'Owner';
 
-// ── PRODUCTION: Replace this block with Supabase Auth ──
-// var { data, error } = await supabase.auth.signInWithPassword({ email, password: pass });
-// if (error) { err.textContent = error.message; err.classList.add('show'); return; }
-// ──────────────────────────────────────────────────────
-
-// Demo credentials
-var OWNERS = [
-{ email: 'keipropertyservices@gmail.com', password: 'password', name: 'Owner' },
-// Add more owners here
-];
-var match = OWNERS.find(o => o.email === email && o.password === pass);
-if(!match){
-err.classList.add('show');
-return;
-}
-loggedIn = true;
-localStorage.setItem('kei-session', JSON.stringify({email:email, name:match.name}));
-document.getElementById('userNameDisplay').textContent = match.name;
-document.getElementById('loginScreen').style.display = 'none';
-document.getElementById('topbar').style.display = 'flex';
-document.getElementById('mainContent').style.display = 'block';
-load();
-await loadFromSupabase();
-initDashboard();
+function doLogin(){
+  var pass = document.getElementById('loginPass').value;
+  var err = document.getElementById('loginError');
+  err.classList.remove('show');
+  if(pass !== OWNER_PASSWORD){ err.classList.add('show'); return; }
+  loggedIn = true;
+  localStorage.setItem('kei-session', JSON.stringify({email:OWNER_EMAIL, name:OWNER_NAME}));
+  document.getElementById('userNameDisplay').textContent = OWNER_NAME;
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('topbar').style.display = 'flex';
+  document.getElementById('mainContent').style.display = 'block';
+  load();
+  initDashboard();
 }
 function doLogout(){
-loggedIn = false;
-localStorage.removeItem('kei-session');
-document.getElementById('loginScreen').style.display = 'flex';
-document.getElementById('topbar').style.display = 'none';
-document.getElementById('mainContent').style.display = 'none';
+  loggedIn = false;
+  localStorage.removeItem('kei-session');
+  document.getElementById('loginPass').value = '';
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('topbar').style.display = 'none';
+  document.getElementById('mainContent').style.display = 'none';
 }
-// Auto-login if session exists
 (function(){
-var sess = localStorage.getItem('kei-session');
-if(sess){ try{ var s=JSON.parse(sess); document.getElementById('loginEmail').value=s.email; doLogin(); }catch(e){} }
+  var sess = localStorage.getItem('kei-session');
+  if(sess){ try{ JSON.parse(sess); doLogin(); }catch(e){} }
+})();
+
+// ── THEME ─────────────────────────────────────────────────────
+function toggleTheme(){
+  var html = document.documentElement;
+  var next = html.getAttribute('data-theme')==='light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('kei-theme', next);
+}
+(function(){
+  if(localStorage.getItem('kei-theme')==='light') document.documentElement.setAttribute('data-theme','light');
 })();
 
 // ── NAVIGATION ───────────────────────────────────────────────
 function showPage(id, btn){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById('page-'+id).classList.add('active');
-document.querySelectorAll('.tnav-btn').forEach(b=>b.classList.remove('active'));
-if(btn) btn.classList.add('active');
-else document.querySelectorAll('.tnav-btn').forEach(b=>{ if(b.textContent.trim().toLowerCase().startsWith(id)) b.classList.add('active'); });
-if(id==='quotes') renderQuotes();
-if(id==='customers') renderCustomers();
-if(id==='jobs') renderJobs();
-if(id==='payments') renderPayments();
-if(id==='dashboard') initDashboard();
-if(id==='calendar') renderCalendar();
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.tnav-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  else document.querySelectorAll('.tnav-btn').forEach(b=>{ if(b.textContent.trim().toLowerCase().startsWith(id)) b.classList.add('active'); });
+  if(id==='quotes') renderQuotes();
+  if(id==='customers') renderCustomers();
+  if(id==='jobs') renderJobs();
+  if(id==='payments') renderPayments();
+  if(id==='dashboard') initDashboard();
+  if(id==='calendar') renderCalendar();
 }
 
 // ── MODAL HELPERS ─────────────────────────────────────────────
@@ -883,599 +772,414 @@ function flash(msg){ var f=document.getElementById('flash'); document.getElement
 
 // ── DASHBOARD ─────────────────────────────────────────────────
 function initDashboard(){
-var now = new Date();
-document.getElementById('dashDate').textContent = now.toLocaleDateString('en-CA',{weekday:'long',year:'numeric',month:'long',day:'numeric'}) + ' · Ottawa';
-var pending = DB.quotes.filter(q=>q.status==='pending').length;
-var active = DB.jobs.filter(j=>j.status!=='completed').length;
-var unpaidAmt= DB.payments.filter(p=>p.status==='unpaid').reduce((s,p)=>s+Number(p.amount),0);
-var paidAmt = DB.payments.filter(p=>p.status==='paid').reduce((s,p)=>s+Number(p.amount),0);
-document.getElementById('d-quotes').textContent = pending;
-document.getElementById('d-jobs').textContent = active;
-document.getElementById('d-unpaid').textContent = fmt$(unpaidAmt);
-document.getElementById('d-revenue').textContent = fmt$(paidAmt);
-document.getElementById('pendingBadge').textContent = pending;
-
-// Recent quotes table
-var qr = document.getElementById('d-quote-rows');
-var recentQ = [...DB.quotes].sort((a,b)=>b.created_at.localeCompare(a.created_at)).slice(0,5);
-qr.innerHTML = recentQ.length ? recentQ.map(q=>`
-<tr onclick="openQuoteModal('${q.id}')">
-<td class="td-name">${q.name}</td>
-<td>${svcLabel(q.service_type)}</td>
-<td>${badge(q.status)}</td>
-</tr>`).join('') : '<tr class="empty-row"><td colspan="3">No quotes yet</td></tr>';
-
-// Upcoming jobs table
-var jr = document.getElementById('d-job-rows');
-var upcoming = [...DB.jobs].sort((a,b)=>a.scheduled_date.localeCompare(b.scheduled_date)).slice(0,5);
-jr.innerHTML = upcoming.length ? upcoming.map(j=>`
-<tr>
-<td class="td-name">${j.customer_name}</td>
-<td>${fmtDate(j.scheduled_date)}</td>
-<td class="td-money">${fmt$(j.price)}</td>
-<td>${badge(j.status)}</td>
-</tr>`).join('') : '<tr class="empty-row"><td colspan="4">No jobs yet</td></tr>';
+  var now = new Date();
+  document.getElementById('dashDate').textContent = now.toLocaleDateString('en-CA',{weekday:'long',year:'numeric',month:'long',day:'numeric'}) + ' · Ottawa';
+  var pending = DB.quotes.filter(q=>q.status==='pending').length;
+  var active = DB.jobs.filter(j=>j.status!=='completed').length;
+  var unpaidAmt = DB.payments.filter(p=>p.status==='unpaid').reduce((s,p)=>s+Number(p.amount),0);
+  var paidAmt = DB.payments.filter(p=>p.status==='paid').reduce((s,p)=>s+Number(p.amount),0);
+  document.getElementById('d-quotes').textContent = pending;
+  document.getElementById('d-jobs').textContent = active;
+  document.getElementById('d-unpaid').textContent = fmt$(unpaidAmt);
+  document.getElementById('d-revenue').textContent = fmt$(paidAmt);
+  document.getElementById('pendingBadge').textContent = pending;
+  var qr = document.getElementById('d-quote-rows');
+  var recentQ = [...DB.quotes].sort((a,b)=>b.created_at.localeCompare(a.created_at)).slice(0,5);
+  qr.innerHTML = recentQ.length ? recentQ.map(q=>`<tr onclick="openQuoteModal('${q.id}')"><td class="td-name">${q.name}</td><td>${svcLabel(q.service_type)}</td><td>${badge(q.status)}</td></tr>`).join('') : '<tr class="empty-row"><td colspan="3">No quotes yet</td></tr>';
+  var jr = document.getElementById('d-job-rows');
+  var upcoming = [...DB.jobs].sort((a,b)=>a.scheduled_date.localeCompare(b.scheduled_date)).slice(0,5);
+  jr.innerHTML = upcoming.length ? upcoming.map(j=>`<tr><td class="td-name">${j.customer_name}</td><td>${fmtDate(j.scheduled_date)}</td><td class="td-money">${fmt$(j.price)}</td><td>${badge(j.status)}</td></tr>`).join('') : '<tr class="empty-row"><td colspan="4">No jobs yet</td></tr>';
 }
 
 // ── QUOTES ───────────────────────────────────────────────────
 function filterQuotes(f, btn){
-quoteFilter = f;
-document.querySelectorAll('#quote-filters .ftab').forEach(b=>b.classList.remove('active'));
-btn.classList.add('active');
-renderQuotes();
+  quoteFilter = f;
+  document.querySelectorAll('#quote-filters .ftab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderQuotes();
 }
+function mapsUrl(address){ return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(address + ', Ottawa, ON'); }
 function renderQuotes(){
-var all = DB.quotes;
-document.getElementById('quotes-count').textContent = all.length + ' total';
-var rows = quoteFilter==='all' ? all : all.filter(q=>q.status===quoteFilter);
-rows = [...rows].sort((a,b)=>b.created_at.localeCompare(a.created_at));
-var tb = document.getElementById('quotes-tbody');
-tb.innerHTML = rows.length ? rows.map(q=>`
-<tr onclick="openQuoteModal('${q.id}')">
-<td class="td-name">${q.name}</td>
-<td>${q.phone}</td>
-<td>${svcLabel(q.service_type)}</td>
-<td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><a href="${mapsUrl(q.address)}" target="_blank" onclick="event.stopPropagation()" style="color:var(--accent);text-decoration:none" title="${q.address}">${q.address} ↗</a></td>
-<td>${fmtDate(q.created_at)}</td>
-<td>${badge(q.status)}</td>
-<td><button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();openQuoteModal('${q.id}')">View</button></td>
-</tr>`).join('')
-: '<tr class="empty-row"><td colspan="7">No quotes in this filter</td></tr>';
-}
-function mapsUrl(address){
-return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(address + ', Ottawa, ON');
+  var all = DB.quotes;
+  document.getElementById('quotes-count').textContent = all.length + ' total';
+  var rows = quoteFilter==='all' ? all : all.filter(q=>q.status===quoteFilter);
+  rows = [...rows].sort((a,b)=>b.created_at.localeCompare(a.created_at));
+  var tb = document.getElementById('quotes-tbody');
+  tb.innerHTML = rows.length ? rows.map(q=>`
+    <tr onclick="openQuoteModal('${q.id}')">
+      <td class="td-name">${q.name}</td><td>${q.phone}</td><td>${svcLabel(q.service_type)}</td>
+      <td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><a href="${mapsUrl(q.address)}" target="_blank" onclick="event.stopPropagation()" style="color:var(--accent)">${q.address} ↗</a></td>
+      <td>${fmtDate(q.created_at)}</td><td>${badge(q.status)}</td>
+      <td><button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();openQuoteModal('${q.id}')">View</button></td>
+    </tr>`).join('') : '<tr class="empty-row"><td colspan="7">No quotes in this filter</td></tr>';
 }
 function openQuoteModal(id){
-var q = DB.quotes.find(x=>x.id===id);
-if(!q) return;
-activeQuoteId = id;
-var phoneClean = q.phone.replace(/\D/g,'');
-document.getElementById('mq-name').textContent = q.name;
-document.getElementById('mq-service').textContent = svcLabel(q.service_type);
-// Phone — clickable call link
-var phoneEl = document.getElementById('mq-phone');
-phoneEl.textContent = q.phone;
-phoneEl.href = 'tel:+1' + phoneClean;
-// Email
-var emailEl = document.getElementById('mq-email');
-if(q.email){ emailEl.innerHTML = '<a href="mailto:'+q.email+'" style="color:var(--accent)">'+q.email+'</a>'; }
-else { emailEl.textContent = '—'; }
-// Address — clickable Google Maps link
-var addrEl = document.getElementById('mq-address');
-addrEl.textContent = q.address;
-addrEl.href = mapsUrl(q.address);
-// Maps button
-document.getElementById('mq-maps-btn').href = mapsUrl(q.address);
-// Call / Text / Email action buttons
-document.getElementById('mq-call-btn').href = 'tel:+1' + phoneClean;
-document.getElementById('mq-sms-btn').href = 'sms:+1' + phoneClean;
-var emailActionBtn = document.getElementById('mq-email-btn');
-if(q.email){ emailActionBtn.href = 'mailto:'+q.email; emailActionBtn.style.opacity='1'; emailActionBtn.style.pointerEvents='auto'; }
-else { emailActionBtn.href='#'; emailActionBtn.style.opacity='.35'; emailActionBtn.style.pointerEvents='none'; }
-document.getElementById('mq-date').textContent = fmtDate(q.created_at);
-document.getElementById('mq-status').innerHTML = badge(q.status);
-// Message
-var msgWrap = document.getElementById('mq-msg-wrap');
-if(q.message){ msgWrap.style.display='block'; document.getElementById('mq-msg').textContent=q.message; }
-else { msgWrap.style.display='none'; }
-// Reset send-quote fields
-document.getElementById('mq-quote-price').value = '';
-document.getElementById('mq-quote-note').value = '';
-openModal('modalQuote');
+  var q = DB.quotes.find(x=>x.id===id);
+  if(!q) return;
+  activeQuoteId = id;
+  var phoneClean = q.phone.replace(/\D/g,'');
+  document.getElementById('mq-name').textContent = q.name;
+  document.getElementById('mq-service').textContent = svcLabel(q.service_type);
+  var phoneEl = document.getElementById('mq-phone');
+  phoneEl.textContent = q.phone; phoneEl.href = 'tel:+1'+phoneClean;
+  var emailEl = document.getElementById('mq-email');
+  emailEl.innerHTML = q.email ? '<a href="mailto:'+q.email+'" style="color:var(--accent)">'+q.email+'</a>' : '—';
+  var addrEl = document.getElementById('mq-address');
+  addrEl.textContent = q.address; addrEl.href = mapsUrl(q.address);
+  document.getElementById('mq-maps-btn').href = mapsUrl(q.address);
+  document.getElementById('mq-call-btn').href = 'tel:+1'+phoneClean;
+  document.getElementById('mq-sms-btn').href = 'sms:+1'+phoneClean;
+  var emailBtn = document.getElementById('mq-email-btn');
+  if(q.email){ emailBtn.href='mailto:'+q.email; emailBtn.style.opacity='1'; emailBtn.style.pointerEvents='auto'; }
+  else { emailBtn.href='#'; emailBtn.style.opacity='.35'; emailBtn.style.pointerEvents='none'; }
+  document.getElementById('mq-date').textContent = fmtDate(q.created_at);
+  document.getElementById('mq-status').innerHTML = badge(q.status);
+  var msgWrap = document.getElementById('mq-msg-wrap');
+  if(q.message){ msgWrap.style.display='block'; document.getElementById('mq-msg').textContent=q.message; }
+  else { msgWrap.style.display='none'; }
+  document.getElementById('mq-quote-price').value = '';
+  document.getElementById('mq-quote-note').value = '';
+  openModal('modalQuote');
 }
-
 function sendQuoteToCustomer(){
-var q = DB.quotes.find(x=>x.id===activeQuoteId);
-if(!q) return;
-var price = document.getElementById('mq-quote-price').value.trim();
-var note = document.getElementById('mq-quote-note').value.trim();
-var method = document.getElementById('mq-quote-method').value;
-if(!price){ alert('Enter a price first.'); document.getElementById('mq-quote-price').focus(); return; }
-var firstName = q.name.split(' ')[0];
-var svc = svcLabel(q.service_type);
-var noteLine = note ? '\n\n' + note : '';
-var msg = 'Hi ' + firstName + ', this is Kei Services!\n\nYour quote for ' + svc + ' at ' + q.address + ' is $' + price + '.' + noteLine + '\n\nTo approve, just reply "Sounds good!" and we\'ll get you booked in.\n\nAny questions? Just text back. Thanks!\n— Kei Services (343) 597-1646';
-var phoneClean = q.phone.replace(/\D/g,'');
-if(method === 'sms'){
-var smsBody = encodeURIComponent(msg);
-window.open('sms:+1' + phoneClean + '?body=' + smsBody);
-} else {
-if(!q.email){ alert('This customer has no email on file. Use Text instead.'); return; }
-var subject = encodeURIComponent('Your Quote from Kei Services — ' + svc);
-var body = encodeURIComponent(msg);
-window.open('mailto:' + q.email + '?subject=' + subject + '&body=' + body);
-}
-// Auto-advance status to "quoted"
-q.status = 'quoted';
-save();
-document.getElementById('mq-status').innerHTML = badge('quoted');
-renderQuotes();
-initDashboard();
-flash('Quote sent to ' + firstName + ' · Status → Quoted');
-if(useSupabase) sbFetch('quote_requests',{method:'PATCH',eq:'id',eqVal:activeQuoteId,body:{status:'quoted'}});
+  var q = DB.quotes.find(x=>x.id===activeQuoteId);
+  if(!q) return;
+  var price = document.getElementById('mq-quote-price').value.trim();
+  var note = document.getElementById('mq-quote-note').value.trim();
+  var method = document.getElementById('mq-quote-method').value;
+  if(!price){ alert('Enter a price first.'); return; }
+  var firstName = q.name.split(' ')[0];
+  var msg = 'Hi '+firstName+', this is Kei Services!\n\nYour quote for '+svcLabel(q.service_type)+' at '+q.address+' is $'+price+'.'+(note?'\n\n'+note:'')+'\n\nTo approve, reply "Sounds good!" and we\'ll get you booked in.\n\nAny questions? Just text back. Thanks!\n— Kei Services (343) 597-1646';
+  var phoneClean = q.phone.replace(/\D/g,'');
+  if(method==='sms'){ window.open('sms:+1'+phoneClean+'?body='+encodeURIComponent(msg)); }
+  else { if(!q.email){ alert('No email on file.'); return; } window.open('mailto:'+q.email+'?subject='+encodeURIComponent('Your Quote from Kei Services')+'&body='+encodeURIComponent(msg)); }
+  q.status = 'quoted'; save();
+  document.getElementById('mq-status').innerHTML = badge('quoted');
+  renderQuotes(); initDashboard();
+  flash('Quote sent to '+firstName+' · Status → Quoted');
 }
 function updateQuoteStatus(status){
-var q = DB.quotes.find(x=>x.id===activeQuoteId);
-if(!q) return;
-q.status = status;
-save();
-document.getElementById('mq-status').innerHTML = badge(status);
-renderQuotes();
-initDashboard();
-flash('Status updated → ' + cap(status));
-if(useSupabase) sbFetch('quote_requests',{method:'PATCH',eq:'id',eqVal:activeQuoteId,body:{status:status}});
+  var q = DB.quotes.find(x=>x.id===activeQuoteId);
+  if(!q) return;
+  q.status = status; save();
+  document.getElementById('mq-status').innerHTML = badge(status);
+  renderQuotes(); initDashboard();
+  flash('Status → '+cap(status));
 }
 function convertQuoteToJob(){
-var q = DB.quotes.find(x=>x.id===activeQuoteId);
-if(!q) return;
-document.getElementById('j-customer').value = q.name;
-document.getElementById('j-service').value = q.service_type;
-closeModal('modalQuote');
-openModal('modalJob');
+  var q = DB.quotes.find(x=>x.id===activeQuoteId);
+  if(!q) return;
+  document.getElementById('j-customer').value = q.name;
+  document.getElementById('j-service').value = q.service_type;
+  closeModal('modalQuote');
+  jobCalPicked = null;
+  var n=new Date(); jobCalYear=n.getFullYear(); jobCalMonth=n.getMonth();
+  renderJobCal();
+  openModal('modalJobCal');
 }
 
 // ── CUSTOMERS ────────────────────────────────────────────────
 function renderCustomers(){
-var search = (document.getElementById('cust-search').value||'').toLowerCase();
-var all = DB.customers.filter(c=>{
-if(!search) return true;
-return (c.name+c.phone+c.email).toLowerCase().includes(search);
-});
-document.getElementById('cust-count').textContent = DB.customers.length + ' customers';
-var tb = document.getElementById('cust-tbody');
-tb.innerHTML = all.length ? all.map(c=>`
-<tr>
-<td class="td-name">${c.name}</td>
-<td>${c.phone}</td>
-<td>${c.email||'—'}</td>
-<td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.address ? `<a href="${mapsUrl(c.address)}" target="_blank" style="color:var(--accent);text-decoration:none">${c.address} ↗</a>` : '—'}</td>
-<td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.notes||'—'}</td>
-<td><button class="btn btn-danger btn-sm" onclick="deleteCustomer('${c.id}')">Delete</button></td>
-</tr>`).join('')
-: '<tr class="empty-row"><td colspan="6">No customers found</td></tr>';
+  var search = (document.getElementById('cust-search').value||'').toLowerCase();
+  var all = DB.customers.filter(c=>!search||(c.name+c.phone+c.email).toLowerCase().includes(search));
+  document.getElementById('cust-count').textContent = DB.customers.length + ' customers';
+  var tb = document.getElementById('cust-tbody');
+  tb.innerHTML = all.length ? all.map(c=>`
+    <tr>
+      <td class="td-name">${c.name}</td><td>${c.phone}</td><td>${c.email||'—'}</td>
+      <td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.address?`<a href="${mapsUrl(c.address)}" target="_blank" style="color:var(--accent)">${c.address} ↗</a>`:'—'}</td>
+      <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.notes||'—'}</td>
+      <td><button class="btn btn-danger btn-sm" onclick="deleteCustomer('${c.id}')">Delete</button></td>
+    </tr>`).join('') : '<tr class="empty-row"><td colspan="6">No customers found</td></tr>';
 }
 function addCustomer(){
-var first = document.getElementById('c-first').value.trim();
-var last = document.getElementById('c-last').value.trim();
-var phone = document.getElementById('c-phone').value.trim();
-if(!first||!phone){ alert('Name and phone are required.'); return; }
-var c = {
-id:uid(), name:first+' '+last, phone,
-email:document.getElementById('c-email').value.trim(),
-address:document.getElementById('c-address').value.trim(),
-notes:document.getElementById('c-notes').value.trim(),
-created_at:today(0)
-};
-DB.customers.unshift(c);
-save();
-closeModal('modalCustomer');
-['c-first','c-last','c-phone','c-email','c-address','c-notes'].forEach(id=>document.getElementById(id).value='');
-renderCustomers();
-flash('Customer added: ' + c.name);
-if(useSupabase) sbFetch('customers',{method:'POST',body:c});
+  var first=document.getElementById('c-first').value.trim();
+  var last=document.getElementById('c-last').value.trim();
+  var phone=document.getElementById('c-phone').value.trim();
+  if(!first||!phone){ alert('Name and phone required.'); return; }
+  var c={id:uid(),name:first+' '+last,phone,email:document.getElementById('c-email').value.trim(),address:document.getElementById('c-address').value.trim(),notes:document.getElementById('c-notes').value.trim(),created_at:today(0)};
+  DB.customers.unshift(c); save();
+  closeModal('modalCustomer');
+  ['c-first','c-last','c-phone','c-email','c-address','c-notes'].forEach(id=>document.getElementById(id).value='');
+  renderCustomers();
+  flash('Customer added: '+c.name);
 }
 function deleteCustomer(id){
-if(!confirm('Delete this customer?')) return;
-DB.customers = DB.customers.filter(c=>c.id!==id);
-save();
-renderCustomers();
-flash('Customer deleted');
+  if(!confirm('Delete this customer?')) return;
+  DB.customers=DB.customers.filter(c=>c.id!==id); save();
+  renderCustomers(); flash('Customer deleted');
 }
 
 // ── JOBS ─────────────────────────────────────────────────────
 function filterJobs(f, btn){
-jobFilter = f;
-document.querySelectorAll('#job-filters .ftab').forEach(b=>b.classList.remove('active'));
-btn.classList.add('active');
-renderJobs();
+  jobFilter=f;
+  document.querySelectorAll('#job-filters .ftab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active'); renderJobs();
 }
 function renderJobs(){
-var all = DB.jobs;
-document.getElementById('jobs-count').textContent = all.length + ' total';
-var rows = jobFilter==='all' ? all : all.filter(j=>j.status===jobFilter);
-rows = [...rows].sort((a,b)=>a.scheduled_date.localeCompare(b.scheduled_date));
-var tb = document.getElementById('jobs-tbody');
-tb.innerHTML = rows.length ? rows.map(j=>`
-<tr>
-<td class="td-name">${j.customer_name}</td>
-<td>${svcLabel(j.service_type)}</td>
-<td>${fmtDate(j.scheduled_date)}</td>
-<td class="td-money">${fmt$(j.price)}</td>
-<td>${badge(j.status)}</td>
-<td style="display:flex;gap:6px;align-items:center">
-${j.status==='scheduled' ? `<button class="btn btn-blue btn-sm" onclick="advanceJob('${j.id}')">Start</button>` : ''}
-${j.status==='in_progress' ? `<button class="btn btn-primary btn-sm" onclick="advanceJob('${j.id}')">Complete</button>` : ''}
-${j.status==='completed' ? `<span style="font-size:12px;color:var(--text-3)">✓ Done</span>` : ''}
-<button class="btn btn-danger btn-sm" onclick="deleteJob('${j.id}')">✕</button>
-</td>
-</tr>`).join('')
-: '<tr class="empty-row"><td colspan="6">No jobs in this filter</td></tr>';
+  var all=DB.jobs;
+  document.getElementById('jobs-count').textContent=all.length+' total';
+  var rows=jobFilter==='all'?all:all.filter(j=>j.status===jobFilter);
+  rows=[...rows].sort((a,b)=>a.scheduled_date.localeCompare(b.scheduled_date));
+  var tb=document.getElementById('jobs-tbody');
+  tb.innerHTML=rows.length?rows.map(j=>`
+    <tr>
+      <td class="td-name">${j.customer_name}</td><td>${svcLabel(j.service_type)}</td>
+      <td>${fmtDate(j.scheduled_date)}</td><td class="td-money">${fmt$(j.price)}</td><td>${badge(j.status)}</td>
+      <td style="display:flex;gap:6px;align-items:center">
+        ${j.status==='scheduled'?`<button class="btn btn-blue btn-sm" onclick="event.stopPropagation();advanceJob('${j.id}')">Start</button>`:''}
+        ${j.status==='in_progress'?`<button class="btn btn-primary btn-sm" onclick="event.stopPropagation();advanceJob('${j.id}')">Complete</button>`:''}
+        ${j.status==='completed'?`<span style="font-size:12px;color:var(--text-3)">✓ Done</span>`:''}
+        <button class="btn btn-danger btn-sm" onclick="event.stopPropagation();deleteJob('${j.id}')">Delete</button>
+      </td>
+    </tr>`).join(''):'<tr class="empty-row"><td colspan="6">No jobs in this filter</td></tr>';
 }
 function addJob(){
-var cust = document.getElementById('j-customer').value.trim();
-var svc = document.getElementById('j-service').value;
-if(!cust||!svc){ alert('Customer name and service are required.'); return; }
-var price = parseFloat(document.getElementById('j-price').value)||0;
-var j = {
-id:uid(), customer_name:cust, service_type:svc,
-scheduled_date:document.getElementById('j-date').value||today(0),
-status:document.getElementById('j-status').value||'scheduled',
-price, notes:document.getElementById('j-notes').value.trim(),
-created_at:today(0)
-};
-DB.jobs.unshift(j);
-// Auto-create payment record
-DB.payments.unshift({id:uid(),job_id:j.id,customer_name:cust,service_type:svc,amount:price,status:'unpaid',method:'',created_at:today(0)});
-save();
-closeModal('modalJob');
-['j-customer','j-date','j-price','j-notes'].forEach(id=>document.getElementById(id).value='');
-document.getElementById('j-service').value='';
-document.getElementById('j-status').value='scheduled';
-renderJobs();
-renderPayments();
-initDashboard();
-flash('Job created for ' + cust);
-if(useSupabase) sbFetch('jobs',{method:'POST',body:j});
+  var cust=document.getElementById('j-customer').value.trim();
+  var svc=document.getElementById('j-service').value;
+  if(!cust||!svc){ alert('Customer name and service required.'); return; }
+  var price=parseFloat(document.getElementById('j-price').value)||0;
+  var j={id:uid(),customer_name:cust,service_type:svc,scheduled_date:document.getElementById('j-date').value||today(0),status:document.getElementById('j-status').value||'scheduled',price,notes:document.getElementById('j-notes').value.trim(),created_at:today(0)};
+  DB.jobs.unshift(j);
+  DB.payments.unshift({id:uid(),job_id:j.id,customer_name:cust,service_type:svc,amount:price,status:'unpaid',method:'',created_at:today(0)});
+  save(); closeModal('modalJob');
+  ['j-customer','j-date','j-price','j-notes'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('j-service').value=''; document.getElementById('j-status').value='scheduled';
+  renderJobs(); renderPayments(); initDashboard();
+  flash('Job created for '+cust);
 }
 function advanceJob(id){
-var j = DB.jobs.find(x=>x.id===id);
-if(!j) return;
-j.status = j.status==='scheduled' ? 'in_progress' : 'completed';
-save();
-renderJobs();
-initDashboard();
-flash('Job status → ' + cap(j.status));
-if(useSupabase) sbFetch('jobs',{method:'PATCH',eq:'id',eqVal:id,body:{status:j.status}});
+  var j=DB.jobs.find(x=>x.id===id); if(!j) return;
+  j.status=j.status==='scheduled'?'in_progress':'completed'; save();
+  renderJobs(); initDashboard();
+  flash('Job status → '+cap(j.status));
 }
 function deleteJob(id){
-if(!confirm('Delete this job?')) return;
-DB.jobs = DB.jobs.filter(j=>j.id!==id);
-DB.payments = DB.payments.filter(p=>p.job_id!==id);
-save();
-renderJobs();
-renderPayments();
-initDashboard();
-flash('Job deleted');
+  if(!confirm('Delete this job?')) return;
+  DB.jobs=DB.jobs.filter(j=>j.id!==id);
+  DB.payments=DB.payments.filter(p=>p.job_id!==id);
+  save(); renderJobs(); renderPayments(); initDashboard();
+  flash('Job deleted');
 }
 
 // ── PAYMENTS ─────────────────────────────────────────────────
 function renderPayments(){
-var paid = DB.payments.filter(p=>p.status==='paid');
-var unpaid = DB.payments.filter(p=>p.status==='unpaid');
-var pAmt = paid.reduce((s,p)=>s+Number(p.amount),0);
-var uAmt = unpaid.reduce((s,p)=>s+Number(p.amount),0);
-document.getElementById('p-collected').textContent = fmt$(pAmt);
-document.getElementById('p-collected-sub').textContent = paid.length + ' payment' + (paid.length!==1?'s':'');
-document.getElementById('p-outstanding').textContent = fmt$(uAmt);
-document.getElementById('p-outstanding-sub').textContent = unpaid.length + ' unpaid';
-document.getElementById('p-total').textContent = fmt$(pAmt+uAmt);
-var all = [...DB.payments].sort((a,b)=>b.created_at.localeCompare(a.created_at));
-var tb = document.getElementById('pay-tbody');
-tb.innerHTML = all.length ? all.map(p=>`
-<tr>
-<td class="td-name">${svcLabel(p.service_type)}</td>
-<td>${p.customer_name}</td>
-<td class="td-money">${fmt$(p.amount)}</td>
-<td>${p.method||'—'}</td>
-<td>${badge(p.status)}</td>
-<td>${p.status==='unpaid' ? `<button class="btn btn-primary btn-sm" onclick="openPayModal('${p.id}')">Mark Paid</button>` : `<span style="font-size:12px;color:var(--text-3)">✓ Collected</span>`}</td>
-</tr>`).join('')
-: '<tr class="empty-row"><td colspan="6">No payment records yet</td></tr>';
+  var paid=DB.payments.filter(p=>p.status==='paid');
+  var unpaid=DB.payments.filter(p=>p.status==='unpaid');
+  var pAmt=paid.reduce((s,p)=>s+Number(p.amount),0);
+  var uAmt=unpaid.reduce((s,p)=>s+Number(p.amount),0);
+  document.getElementById('p-collected').textContent=fmt$(pAmt);
+  document.getElementById('p-collected-sub').textContent=paid.length+' payment'+(paid.length!==1?'s':'');
+  document.getElementById('p-outstanding').textContent=fmt$(uAmt);
+  document.getElementById('p-outstanding-sub').textContent=unpaid.length+' unpaid';
+  document.getElementById('p-total').textContent=fmt$(pAmt+uAmt);
+  var all=[...DB.payments].sort((a,b)=>b.created_at.localeCompare(a.created_at));
+  var tb=document.getElementById('pay-tbody');
+  tb.innerHTML=all.length?all.map(p=>`
+    <tr>
+      <td class="td-name">${svcLabel(p.service_type)}</td><td>${p.customer_name}</td>
+      <td class="td-money">${fmt$(p.amount)}</td><td>${p.method||'—'}</td><td>${badge(p.status)}</td>
+      <td>${p.status==='unpaid'?`<button class="btn btn-primary btn-sm" onclick="openPayModal('${p.id}')">Mark Paid</button>`:`<span style="font-size:12px;color:var(--text-3)">✓ Collected</span>`}</td>
+    </tr>`).join(''):'<tr class="empty-row"><td colspan="6">No payments yet</td></tr>';
 }
 function openPayModal(id){
-var p = DB.payments.find(x=>x.id===id);
-if(!p) return;
-activePayId = id;
-document.getElementById('mp-job').textContent = svcLabel(p.service_type) + ' — ' + p.customer_name;
-document.getElementById('mp-amount').textContent = fmt$(p.amount);
-openModal('modalPay');
+  var p=DB.payments.find(x=>x.id===id); if(!p) return;
+  activePayId=id;
+  document.getElementById('mp-job').textContent=svcLabel(p.service_type)+' — '+p.customer_name;
+  document.getElementById('mp-amount').textContent=fmt$(p.amount);
+  openModal('modalPay');
 }
 function confirmPaid(){
-var p = DB.payments.find(x=>x.id===activePayId);
-if(!p) return;
-p.status = 'paid';
-p.method = document.getElementById('mp-method').value;
-save();
-closeModal('modalPay');
-renderPayments();
-initDashboard();
-flash('Payment confirmed — ' + fmt$(p.amount) + ' via ' + cap(p.method));
-if(useSupabase) sbFetch('payments',{method:'PATCH',eq:'id',eqVal:activePayId,body:{status:'paid',method:p.method}});
+  var p=DB.payments.find(x=>x.id===activePayId); if(!p) return;
+  p.status='paid'; p.method=document.getElementById('mp-method').value;
+  save(); closeModal('modalPay'); renderPayments(); initDashboard();
+  flash('Payment confirmed — '+fmt$(p.amount)+' via '+cap(p.method));
 }
 
 // ── CALENDAR ─────────────────────────────────────────────────
-var calYear = new Date().getFullYear();
-var calMonth = new Date().getMonth(); // 0-indexed
-var calSelectedDate = null; // 'YYYY-MM-DD'
-
-var MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-var DAY_LABELS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-
-function getBlockedDays() {
-var raw = localStorage.getItem('kei-blocked-days');
-try { return raw ? JSON.parse(raw) : {}; } catch(e) { return {}; }
-}
-function saveBlockedDays(obj) {
-localStorage.setItem('kei-blocked-days', JSON.stringify(obj));
-}
-
-function calToday() {
-var n = new Date();
-calYear = n.getFullYear();
-calMonth = n.getMonth();
-calSelectedDate = today(0);
-renderCalendar();
-}
-
-function calMove(dir) {
-calMonth += dir;
-if (calMonth > 11) { calMonth = 0; calYear++; }
-if (calMonth < 0) { calMonth = 11; calYear--; }
-renderCalendar();
-}
-
-function getJobsForDate(dateStr) {
-return DB.jobs.filter(j => j.scheduled_date === dateStr);
-}
-
-function renderCalendar() {
-var blocked = getBlockedDays();
-var todayStr = today(0);
-var firstDay = new Date(calYear, calMonth, 1).getDay();
-var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-var daysInPrev = new Date(calYear, calMonth, 0).getDate();
-
-document.getElementById('calMonthLabel').textContent = MONTH_NAMES[calMonth] + ' ' + calYear;
-document.getElementById('miniMonthLabel').textContent = MONTH_NAMES[calMonth].slice(0,3) + ' ' + calYear;
-document.getElementById('cal-sub').textContent = MONTH_NAMES[calMonth] + ' ' + calYear + ' · Click a day to manage it';
-
-// Day labels
-var labelsEl = document.getElementById('calDayLabels');
-labelsEl.innerHTML = DAY_LABELS.map(d => `<div class="cal-day-label">${d}</div>`).join('');
-var miniLabels = document.getElementById('miniDayLabels');
-miniLabels.innerHTML = DAY_LABELS.map(d => `<div class="mini-day-label">${d[0]}</div>`).join('');
-
-var cells = [];
-var miniCells = [];
-
-// Prev month padding
-for (var i = firstDay - 1; i >= 0; i--) {
-var d = daysInPrev - i;
-var ds = isoDate(calYear, calMonth - 1 < 0 ? calYear - 1 : calYear, calMonth - 1 < 0 ? 11 : calMonth - 1, d);
-cells.push({ day: d, dateStr: ds, otherMonth: true });
-miniCells.push({ day: d, dateStr: ds, otherMonth: true });
-}
-// Current month
-for (var d = 1; d <= daysInMonth; d++) {
-var ds = isoDate(calYear, calYear, calMonth, d);
-cells.push({ day: d, dateStr: ds, otherMonth: false });
-miniCells.push({ day: d, dateStr: ds, otherMonth: false });
-}
-// Next month padding
-var remaining = 42 - cells.length;
-for (var d = 1; d <= remaining; d++) {
-var ds = isoDate(calYear, calMonth + 1 > 11 ? calYear + 1 : calYear, calMonth + 1 > 11 ? 0 : calMonth + 1, d);
-cells.push({ day: d, dateStr: ds, otherMonth: true });
-miniCells.push({ day: d, dateStr: ds, otherMonth: true });
-}
-
-// Render main grid
-var daysEl = document.getElementById('calDays');
-daysEl.innerHTML = cells.map(function(c) {
-var jobs = getJobsForDate(c.dateStr);
-var isBlocked = !!blocked[c.dateStr];
-var isToday = c.dateStr === todayStr;
-var isSelected = c.dateStr === calSelectedDate;
-
-var cls = 'cal-day';
-if (c.otherMonth) cls += ' other-month';
-if (isBlocked) cls += ' blocked';
-if (jobs.length > 0) cls += ' has-jobs';
-if (isToday) cls += ' today';
-if (isSelected) cls += ' selected';
-
-var numCls = 'cal-day-num';
-var events = jobs.slice(0,3).map(j =>
-`<div class="cal-event ev-${j.status}">${j.customer_name.split(' ')[0]} · ${svcLabel(j.service_type).split(' ')[0]}</div>`
-).join('');
-if (isBlocked) {
-var reason = blocked[c.dateStr].reason || 'Blocked';
-events += `<div class="cal-event ev-blocked">${reason}</div>`;
-}
-
-return `<div class="${cls}" onclick="calSelectDay('${c.dateStr}')">
-<div class="${numCls}">${c.day}</div>
-${events}
-</div>`;
-}).join('');
-
-// Render mini grid
-var miniEl = document.getElementById('miniDays');
-miniEl.innerHTML = miniCells.map(function(c) {
-var jobs = getJobsForDate(c.dateStr);
-var isBlocked = !!blocked[c.dateStr];
-var isToday = c.dateStr === todayStr;
-var isSelected = c.dateStr === calSelectedDate;
-var cls = 'mini-day';
-if (c.otherMonth) cls += ' other';
-if (isToday) cls += ' today';
-if (isBlocked) cls += ' blocked';
-if (jobs.length > 0) cls += ' has-job';
-if (isSelected) cls += ' selected';
-return `<div class="${cls}" onclick="calSelectDay('${c.dateStr}')">${c.day}</div>`;
-}).join('');
-
-// Refresh detail panel
-if (calSelectedDate) renderDayDetail(calSelectedDate);
-renderBlockedList();
-}
-
-function isoDate(displayYear, actualYear, month, day) {
-// Handle cross-year prev/next month
-var y = actualYear;
-var m = month;
-if (m < 0) { m = 11; y = displayYear - 1; }
-if (m > 11) { m = 0; y = displayYear + 1; }
-return y + '-' + String(m + 1).padStart(2,'0') + '-' + String(day).padStart(2,'0');
-}
-
-function calSelectDay(dateStr) {
-calSelectedDate = dateStr;
-renderCalendar();
-}
-
-function renderDayDetail(dateStr) {
-var blocked = getBlockedDays();
-var jobs = getJobsForDate(dateStr);
-var isBlocked = !!blocked[dateStr];
-var d = new Date(dateStr + 'T12:00:00');
-var label = d.toLocaleDateString('en-CA', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
-
-document.getElementById('calDetailTitle').textContent = label;
-document.getElementById('calDetailSub').textContent =
-jobs.length > 0 ? jobs.length + ' job' + (jobs.length > 1 ? 's' : '') + ' scheduled'
-: isBlocked ? '🚫 Blocked — ' + (blocked[dateStr].reason || 'No reason given')
-: 'No jobs scheduled';
-
-// Jobs list
-var jobsEl = document.getElementById('calDetailJobs');
-if (jobs.length > 0) {
-jobsEl.innerHTML = jobs.map(j => `
-<div class="detail-job-card" onclick="openJobDetailFromCal('${j.id}')">
-<div class="detail-job-name">${j.customer_name}</div>
-<div class="detail-job-svc" style="display:flex;align-items:center;justify-content:space-between">
-<span>${svcLabel(j.service_type)}</span>
-<span style="display:flex;align-items:center;gap:6px">${badge(j.status)}<span style="color:var(--accent);font-weight:600">${fmt$(j.price)}</span></span>
-</div>
-</div>`).join('');
-} else {
-jobsEl.innerHTML = '';
-}
-
-// Block controls
-document.getElementById('blockSection').style.display = 'block';
-var blockBtn = document.querySelector('#blockSection .btn-danger');
-if (isBlocked) {
-blockBtn.textContent = 'Unblock';
-blockBtn.className = 'btn btn-ghost btn-sm';
-document.getElementById('blockReason').value = blocked[dateStr].reason || '';
-} else {
-blockBtn.textContent = 'Block';
-blockBtn.className = 'btn btn-danger btn-sm';
-document.getElementById('blockReason').value = '';
-}
-
-// Book button — disable if blocked
-var bookBtn = document.getElementById('calBookBtn');
-if (isBlocked) {
-bookBtn.disabled = true;
-bookBtn.textContent = 'Day is blocked';
-} else {
-bookBtn.disabled = false;
-bookBtn.textContent = '+ Book Job on This Day';
-}
-}
-
-function toggleBlock() {
-if (!calSelectedDate) return;
-var blocked = getBlockedDays();
-if (blocked[calSelectedDate]) {
-delete blocked[calSelectedDate];
-flash('Day unblocked');
-} else {
-var reason = document.getElementById('blockReason').value.trim();
-blocked[calSelectedDate] = { reason: reason || '' };
-flash('Day blocked' + (reason ? ' — ' + reason : ''));
-}
-saveBlockedDays(blocked);
-renderCalendar();
-}
-
-function renderBlockedList() {
-var blocked = getBlockedDays();
-var keys = Object.keys(blocked).sort();
-var el = document.getElementById('blockedDaysList');
-if (keys.length === 0) {
-el.innerHTML = '<div style="font-size:13px;color:var(--text-3)">No days blocked yet</div>';
-return;
-}
-el.innerHTML = keys.map(function(ds) {
-var d = new Date(ds + 'T12:00:00');
-var label = d.toLocaleDateString('en-CA', { month:'short', day:'numeric', year:'numeric' });
-var reason = blocked[ds].reason ? ' — ' + blocked[ds].reason : '';
-return `<div class="blocked-item">
-<span>${label}${reason}</span>
-<button class="blocked-remove" onclick="unblockDay('${ds}')" title="Unblock">✕</button>
-</div>`;
-}).join('');
-}
-
-function unblockDay(ds) {
-var blocked = getBlockedDays();
-delete blocked[ds];
-saveBlockedDays(blocked);
-if (calSelectedDate === ds) renderDayDetail(ds);
-renderCalendar();
-flash('Unblocked ' + ds);
-}
-
-function bookJobOnDay() {
-// Pre-fill the job date and open the modal
-if (!calSelectedDate) return;
-document.getElementById('j-date').value = calSelectedDate;
-openModal('modalJob');
-}
-
-function openJobDetailFromCal(id) {
-// Switch to jobs page and highlight
-showPage('jobs', null);
-flash('Viewing job — ' + (DB.jobs.find(j=>j.id===id)||{}).customer_name || '');
-}
-
-// Patch addJob to refresh calendar if open
-var _origAddJob = addJob;
-addJob = function() {
-_origAddJob();
-// Refresh calendar if it's visible
-if (document.getElementById('page-calendar').classList.contains('active')) {
-renderCalendar();
-}
+var calYear=new Date().getFullYear();
+var calMonth=new Date().getMonth();
+var calSelectedDates=[today(0)];
+var calLastClicked=today(0);
+var calBlockColor='red';
+var MONTH_NAMES=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var DAY_LABELS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+var BLOCK_COLORS={
+  red:{bg:'rgba(255,92,92,.12)',dot:'#ff5c5c',label:'Unavailable'},
+  orange:{bg:'rgba(255,140,66,.12)',dot:'#ff8c42',label:'Personal'},
+  yellow:{bg:'rgba(245,200,66,.12)',dot:'#f5c842',label:'Holiday'},
+  purple:{bg:'rgba(167,139,250,.12)',dot:'#a78bfa',label:'School'},
+  blue:{bg:'rgba(92,158,255,.12)',dot:'#5c9eff',label:'Weather'},
+  grey:{bg:'rgba(136,136,136,.1)',dot:'#888888',label:'Other'},
 };
+function getBlockedDays(){ try{return JSON.parse(localStorage.getItem('kei-blocked-days')||'{}')}catch(e){return{}} }
+function saveBlockedDays(obj){ localStorage.setItem('kei-blocked-days',JSON.stringify(obj)); }
+function calToday(){ var n=new Date(); calYear=n.getFullYear(); calMonth=n.getMonth(); calSelectedDates=[today(0)]; calLastClicked=today(0); renderCalendar(); }
+function calMove(dir){ calMonth+=dir; if(calMonth>11){calMonth=0;calYear++} if(calMonth<0){calMonth=11;calYear--} renderCalendar(); }
+function clearCalSelection(){ calSelectedDates=[]; calLastClicked=null; renderCalendar(); }
+function selectBlockColor(el,color){ calBlockColor=color; document.querySelectorAll('.color-swatch').forEach(s=>s.classList.remove('active')); el.classList.add('active'); }
+function getJobsForDate(dateStr){ return DB.jobs.filter(j=>j.scheduled_date===dateStr); }
+function isoDate(y,m,d){ var yr=y,mo=m; if(mo<0){mo=11;yr--} if(mo>11){mo=0;yr++} return yr+'-'+String(mo+1).padStart(2,'0')+'-'+String(d).padStart(2,'0'); }
+function datesBetween(a,b){ var s=new Date(a+'T12:00:00'),e=new Date(b+'T12:00:00'); if(s>e){var t=s;s=e;e=t} var dates=[],cur=new Date(s); while(cur<=e){dates.push(cur.toISOString().split('T')[0]);cur.setDate(cur.getDate()+1)} return dates; }
+function calClickDay(dateStr,shiftKey){
+  if(shiftKey&&calLastClicked){ var range=datesBetween(calLastClicked,dateStr); range.forEach(function(d){if(!calSelectedDates.includes(d))calSelectedDates.push(d)}); }
+  else{ var idx=calSelectedDates.indexOf(dateStr); if(idx>=0)calSelectedDates.splice(idx,1); else calSelectedDates.push(dateStr); }
+  calLastClicked=dateStr; renderCalendar();
+}
+function renderCalendar(){
+  var blocked=getBlockedDays();
+  var todayStr=today(0);
+  var firstDay=new Date(calYear,calMonth,1).getDay();
+  var daysInMonth=new Date(calYear,calMonth+1,0).getDate();
+  var daysInPrev=new Date(calYear,calMonth,0).getDate();
+  document.getElementById('calMonthLabel').textContent=MONTH_NAMES[calMonth]+' '+calYear;
+  document.getElementById('miniMonthLabel').textContent=MONTH_NAMES[calMonth].slice(0,3)+' '+calYear;
+  var sc=document.getElementById('calSelCount'),cb=document.getElementById('calClearBtn');
+  if(calSelectedDates.length>0){sc.textContent=calSelectedDates.length+' day'+(calSelectedDates.length>1?'s':'')+' selected';sc.style.display='block';cb.style.display='inline-flex';}
+  else{sc.style.display='none';cb.style.display='none';}
+  document.getElementById('calDayLabels').innerHTML=DAY_LABELS.map(d=>`<div class="cal-day-label">${d}</div>`).join('');
+  document.getElementById('miniDayLabels').innerHTML=DAY_LABELS.map(d=>`<div class="mini-day-label">${d[0]}</div>`).join('');
+  var cells=[];
+  for(var i=firstDay-1;i>=0;i--) cells.push({day:daysInPrev-i,m:calMonth-1,other:true});
+  for(var d=1;d<=daysInMonth;d++) cells.push({day:d,m:calMonth,other:false});
+  for(var d=1;cells.length<42;d++) cells.push({day:d,m:calMonth+1,other:true});
+  cells=cells.map(function(c){c.dateStr=isoDate(calYear,c.m,c.day);return c;});
+  document.getElementById('calDays').innerHTML=cells.map(function(c){
+    var jobs=getJobsForDate(c.dateStr);
+    var bdata=blocked[c.dateStr];
+    var isBlocked=!!bdata,isToday=c.dateStr===todayStr,isSel=calSelectedDates.includes(c.dateStr);
+    var bc=isBlocked?BLOCK_COLORS[bdata.color||'red']:null;
+    var cls='cal-day'+(c.other?' other-month':'')+(isBlocked?' blocked':'')+(jobs.length?' has-jobs':'')+(isToday?' today':'')+(isSel?' selected':'');
+    var blockBg=isBlocked?'background:'+bc.bg+';':'';
+    var numStyle='';
+    if(isToday&&!isSel) numStyle='background:var(--accent);color:#080808;font-weight:800';
+    if(isSel) numStyle='background:var(--accent);color:#080808;font-weight:800;box-shadow:0 0 0 2px var(--accent)';
+    var events=jobs.slice(0,2).map(j=>`<div class="cal-event ev-${j.status}">${j.customer_name.split(' ')[0]}</div>`).join('');
+    if(isBlocked){var reason=bdata.reason||bc.label;events+=`<div class="cal-event" style="background:${bc.bg};color:${bc.dot}">${reason.slice(0,14)}</div>`;}
+    return `<div class="${cls}" style="${blockBg}" onclick="calClickDay('${c.dateStr}',event.shiftKey)"><div class="cal-day-num" style="${numStyle}">${c.day}</div>${events}</div>`;
+  }).join('');
+  document.getElementById('miniDays').innerHTML=cells.map(function(c){
+    var jobs=getJobsForDate(c.dateStr),bdata=blocked[c.dateStr],isBlocked=!!bdata,isToday=c.dateStr===todayStr,isSel=calSelectedDates.includes(c.dateStr);
+    var cls='mini-day'+(c.other?' other':'')+(isToday?' today':'')+(isBlocked?' blocked':'')+(jobs.length?' has-job':'')+(isSel?' selected':'');
+    return `<div class="${cls}" onclick="calClickDay('${c.dateStr}',event.shiftKey)">${c.day}</div>`;
+  }).join('');
+  renderDayDetail(); renderBlockedList();
+}
+function renderDayDetail(){
+  var blocked=getBlockedDays();
+  var section=document.getElementById('blockSection');
+  if(calSelectedDates.length===0){
+    document.getElementById('calDetailTitle').textContent='Select a day';
+    document.getElementById('calDetailSub').textContent='Click any date · Shift+click for range';
+    document.getElementById('calDetailJobs').innerHTML='';
+    section.style.display='none'; return;
+  }
+  section.style.display='block';
+  if(calSelectedDates.length===1){
+    var ds=calSelectedDates[0],jobs=getJobsForDate(ds),bdata=blocked[ds],isBlocked=!!bdata;
+    var d=new Date(ds+'T12:00:00');
+    document.getElementById('calDetailTitle').textContent=d.toLocaleDateString('en-CA',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+    document.getElementById('calDetailSub').textContent=jobs.length>0?jobs.length+' job'+(jobs.length>1?'s':'')+' scheduled':isBlocked?'🚫 '+(bdata.reason||BLOCK_COLORS[bdata.color||'red'].label):'No jobs scheduled';
+    document.getElementById('calDetailJobs').innerHTML=jobs.map(j=>`<div class="detail-job-card"><div class="detail-job-name">${j.customer_name}</div><div class="detail-job-svc" style="display:flex;align-items:center;justify-content:space-between"><span>${svcLabel(j.service_type)}</span><span>${badge(j.status)} <span style="color:var(--accent);font-weight:600">${fmt$(j.price)}</span></span></div></div>`).join('');
+    if(isBlocked){document.getElementById('blockReason').value=bdata.reason||'';var col=bdata.color||'red';calBlockColor=col;document.querySelectorAll('.color-swatch').forEach(s=>s.classList.toggle('active',s.dataset.color===col));}
+    var bookBtn=document.getElementById('calBookBtn');
+    bookBtn.style.display='block'; bookBtn.disabled=isBlocked; bookBtn.textContent=isBlocked?'Day is blocked':'+ Book Job on This Day';
+  } else {
+    var allBlocked=calSelectedDates.every(d=>!!blocked[d]),someBlocked=calSelectedDates.some(d=>!!blocked[d]);
+    document.getElementById('calDetailTitle').textContent=calSelectedDates.length+' days selected';
+    document.getElementById('calDetailSub').textContent=allBlocked?'All selected days are blocked':someBlocked?'Some days are blocked':'No selected days are blocked';
+    document.getElementById('calDetailJobs').innerHTML='';
+    document.getElementById('calBookBtn').style.display='none';
+  }
+}
+function applyBlock(){
+  if(!calSelectedDates.length) return;
+  var blocked=getBlockedDays(),reason=document.getElementById('blockReason').value.trim();
+  calSelectedDates.forEach(function(ds){blocked[ds]={color:calBlockColor,reason};});
+  saveBlockedDays(blocked); flash('Blocked '+calSelectedDates.length+' day'+(calSelectedDates.length>1?'s':'')); renderCalendar();
+}
+function applyUnblock(){
+  if(!calSelectedDates.length) return;
+  var blocked=getBlockedDays();
+  calSelectedDates.forEach(function(ds){delete blocked[ds];});
+  saveBlockedDays(blocked); flash('Unblocked '+calSelectedDates.length+' day'+(calSelectedDates.length>1?'s':'')); renderCalendar();
+}
+function renderBlockedList(){
+  var blocked=getBlockedDays(),keys=Object.keys(blocked).sort(),el=document.getElementById('blockedDaysList');
+  if(!keys.length){el.innerHTML='<div style="font-size:13px;color:var(--text-3)">No days blocked</div>';return;}
+  el.innerHTML=keys.map(function(ds){
+    var b=blocked[ds],col=BLOCK_COLORS[b.color||'red'];
+    var d=new Date(ds+'T12:00:00');
+    var label=d.toLocaleDateString('en-CA',{month:'short',day:'numeric',year:'numeric'});
+    return `<div class="blocked-item" style="border-color:${col.dot}33"><span style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:${col.dot};flex-shrink:0"></span><span>${label} — ${b.reason||col.label}</span></span><button class="blocked-remove" onclick="quickUnblock('${ds}')" title="Unblock">✕</button></div>`;
+  }).join('');
+}
+function quickUnblock(ds){
+  var blocked=getBlockedDays(); delete blocked[ds]; saveBlockedDays(blocked);
+  calSelectedDates=calSelectedDates.filter(d=>d!==ds); renderCalendar(); flash('Unblocked '+ds);
+}
+function bookJobOnDay(){
+  var ds=calSelectedDates[0]; if(!ds) return;
+  var blocked=getBlockedDays();
+  if(blocked[ds]&&!confirm('This day is blocked ('+( blocked[ds].reason||'no reason')+'). Book anyway?')) return;
+  document.getElementById('j-date').value=ds; openModal('modalJob');
+}
 
-// Initialize calendar with current month
-(function() {
-var n = new Date();
-calYear = n.getFullYear();
-calMonth = n.getMonth();
-calSelectedDate = today(0);
-})();
+// ── JOB CALENDAR PICKER ───────────────────────────────────────
+var jobCalYear=new Date().getFullYear(),jobCalMonth=new Date().getMonth(),jobCalPicked=null;
+function jobCalMove(dir){ jobCalMonth+=dir; if(jobCalMonth>11){jobCalMonth=0;jobCalYear++} if(jobCalMonth<0){jobCalMonth=11;jobCalYear--} renderJobCal(); }
+function renderJobCal(){
+  var blocked=getBlockedDays(),todayStr=today(0);
+  var firstDay=new Date(jobCalYear,jobCalMonth,1).getDay();
+  var daysInMonth=new Date(jobCalYear,jobCalMonth+1,0).getDate();
+  var daysInPrev=new Date(jobCalYear,jobCalMonth,0).getDate();
+  document.getElementById('jobCalMonthLabel').textContent=MONTH_NAMES[jobCalMonth]+' '+jobCalYear;
+  document.getElementById('jobCalLabels').innerHTML=DAY_LABELS.map(d=>'<div style="font-family:var(--fm);font-size:9px;text-transform:uppercase;color:var(--text-3);text-align:center;padding:4px 0">'+d[0]+'</div>').join('');
+  var cells=[];
+  for(var i=firstDay-1;i>=0;i--) cells.push({day:daysInPrev-i,m:jobCalMonth-1,other:true});
+  for(var d=1;d<=daysInMonth;d++) cells.push({day:d,m:jobCalMonth,other:false});
+  for(var d=1;cells.length<42;d++) cells.push({day:d,m:jobCalMonth+1,other:true});
+  cells=cells.map(function(c){c.dateStr=isoDate(jobCalYear,c.m,c.day);return c;});
+  document.getElementById('jobCalGrid').innerHTML=cells.map(function(c){
+    var bdata=blocked[c.dateStr],isBlocked=!!bdata,isToday=c.dateStr===todayStr,isPicked=c.dateStr===jobCalPicked;
+    var jobs=getJobsForDate(c.dateStr);
+    var bg='transparent',color=c.other?'var(--text-3)':'var(--text-2)',border='1px solid transparent',fw='400';
+    if(isBlocked){bg=BLOCK_COLORS[bdata.color||'red'].bg;color=BLOCK_COLORS[bdata.color||'red'].dot;}
+    if(isToday){border='1px solid var(--accent)';color='var(--accent)';fw='700';}
+    if(isPicked){bg='var(--accent)';color='#080808';fw='800';border='1px solid var(--accent)';}
+    var dot=(jobs.length>0&&!isPicked)?'<span style="position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--blue)"></span>':'';
+    return '<div onclick="jobCalPickDay(\''+c.dateStr+'\','+isBlocked+')" style="position:relative;height:34px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:'+fw+';color:'+color+';background:'+bg+';border:'+border+';border-radius:7px;cursor:pointer;transition:all .15s">'+c.day+dot+'</div>';
+  }).join('');
+}
+function jobCalPickDay(ds,isBlocked){
+  var blocked=getBlockedDays(); jobCalPicked=ds;
+  var d=new Date(ds+'T12:00:00');
+  document.getElementById('jobCalSelected').textContent=d.toLocaleDateString('en-CA',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  var warnEl=document.getElementById('jobCalBlockWarn'),confirmBtn=document.getElementById('jobCalConfirmBtn');
+  if(isBlocked){
+    var bdata=blocked[ds],reason=bdata?(bdata.reason||BLOCK_COLORS[bdata.color||'red'].label):'Blocked';
+    warnEl.textContent='⚠️ This day is blocked ('+reason+'). You can still book — tap Confirm to proceed.';
+    warnEl.style.display='block'; confirmBtn.disabled=false; confirmBtn.textContent='Book Anyway →';
+    confirmBtn.style.background='var(--yellow)'; confirmBtn.style.color='#080808';
+  } else {
+    warnEl.style.display='none'; confirmBtn.disabled=false; confirmBtn.textContent='Confirm Date →';
+    confirmBtn.style.background=''; confirmBtn.style.color='';
+  }
+  renderJobCal();
+}
+function confirmJobCalDate(){
+  if(!jobCalPicked) return;
+  document.getElementById('j-date').value=jobCalPicked;
+  closeModal('modalJobCal'); openModal('modalJob');
+}
 
-document.addEventListener('DOMContentLoaded', function(){
-var d = new Date();
-var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-var dashDate = document.getElementById('dashDate');
-if(dashDate) dashDate.textContent = days[d.getDay()]+', '+months[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()+' · Ottawa';
+// ── INIT ─────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded',function(){
+  var n=new Date();
+  var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var el=document.getElementById('dashDate');
+  if(el) el.textContent=days[n.getDay()]+', '+months[n.getMonth()]+' '+n.getDate()+', '+n.getFullYear()+' · Ottawa';
 });
 </script>
 </body>
